@@ -12,7 +12,7 @@ AR Stash Photos:
 ![alt tag](https://github.com/reesewahlin/COGS121-Guography/blob/master/storyboards/ar%20stash%20photos.pdf)
 
 Midpoint Finder:
-![alt tag](https://github.com/reesewahlin/COGS121-Guography/blob/master/storyboards/midpoint%finder.png)
+![alt tag](https://github.com/reesewahlin/COGS121-Guography/blob/master/storyboards/midpoint%20finder.png)
 
 Neighborhood Watch:
-![alt tag](https://github.com/reesewahlin/COGS121-Guography/blob/master/storyboards/neighborhood%watch.png)
+![alt tag](https://github.com/reesewahlin/COGS121-Guography/blob/master/storyboards/neighborhood%20watch.png)
