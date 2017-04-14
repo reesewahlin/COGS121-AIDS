@@ -1,8 +1,8 @@
 Project Title:
-
+locus
 
 Catchy Summary: 
-Location based company promotions centered around the outdoors and activities. Competitive and non-competitive promotions encourage users to get active and engage with the environment in return for company discounts, give-aways, and brand propogation.
+Location based company promotions positioned in the outdoors and around activities. Competitive and non-competitive promotions encourage users to get active and engage with the environment in return for company discounts, give-aways, and brand propogation.
 
 Storyboard link:
 ![alt tag](https://github.com/reesewahlin/COGS121-Guography/blob/master/storyboards/ar%20outdoor.JPG)
