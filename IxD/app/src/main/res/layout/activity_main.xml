@@ -10,8 +10,22 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.cogs121.ixd.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
+    <!--
+    The layout for the flow of the MainActivity.
+    -->
+
+    <FrameLayout
+        android:id="@+id/fl_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+    <!-- Any screen in the main activity that will ALWAYS overlay the main pages -->
+    <FrameLayout
+        android:id="@+id/fl_main_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+
 </RelativeLayout>
