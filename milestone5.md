@@ -15,5 +15,5 @@
 
 ## Screenshot: 
 ![alt tag](https://github.com/reesewahlin/COGS121-Guography/blob/master/storyboards/milestone5_addpin.JPG)
-Description:
+### Description:
 Here is shown our map page. The blue dot is the location of the user. The red pin is a user added pin. Pins are added by holding down on a location on the screen. This will be the means that companies create and locate promotions.
