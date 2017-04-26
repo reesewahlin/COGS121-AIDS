@@ -3,6 +3,7 @@ package com.cogs121.ixd;
 import android.app.Application;
 
 import com.cogs121.ixd.Controllers.ControllerFactory;
+import com.cogs121.ixd.stores.StoreFactory;
 
 /**
  * Created by Chad on 4/17/17.
@@ -16,6 +17,7 @@ public class LocusApplication extends Application implements ServiceContainer {
     private boolean tornDown = false;
 
     private ControllerFactory controllerFactory;
+    private StoreFactory storeFactory;
 
     public static LocusApplication getInstance() {
         if (locusApplication == null) {
@@ -35,6 +37,11 @@ public class LocusApplication extends Application implements ServiceContainer {
     }
 
     @Override
+    public StoreFactory getStoreFactory() {
+        return storeFactory;
+    }
+
+    @Override
     public void onCreate() {
         super.onCreate();
         init();
@@ -43,6 +50,7 @@ public class LocusApplication extends Application implements ServiceContainer {
     private void init() {
         locusApplication = this;
         controllerFactory = ControllerFactory.getInstance();
+        storeFactory = StoreFactory.getInstance(getApplicationContext());
 
         tornDown = false;
     }

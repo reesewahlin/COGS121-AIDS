@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.cogs121.ixd.utils.GoogleMapView;
-import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -27,6 +27,8 @@ public class BaseMapFragment extends BaseFragment implements OnMapReadyCallback 
     private GoogleMapView googleMapView;
     private GoogleMap gMap;
 
+    private GoogleApiClient googleApiClient;
+
     private LatLng currentLocation;
 
     @Override
@@ -40,15 +42,6 @@ public class BaseMapFragment extends BaseFragment implements OnMapReadyCallback 
         googleMapView.getUISettings().setMyLocationButtonEnabled(false);
         googleMapView.getUISettings().setMapToolbarEnabled(false);
 
-        LatLng sanDiego = new LatLng(32.7157, 117.1611);
-
-
-        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(sanDiego, 13));
-
-        googleMap.addMarker(new MarkerOptions()
-                .title("San Diego")
-                .snippet("wahoooooo")
-                .position(sanDiego));
 
         googleMapView.setOnMapLongClickListener(new GoogleMap.OnMapLongClickListener() {
             @Override
@@ -61,7 +54,7 @@ public class BaseMapFragment extends BaseFragment implements OnMapReadyCallback 
         });
 
 
-
+        animateToCurrLocation(true);
         mapHolder.onResume();
     }
 
@@ -70,6 +63,8 @@ public class BaseMapFragment extends BaseFragment implements OnMapReadyCallback 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
     }
 
     @Nullable
@@ -83,6 +78,18 @@ public class BaseMapFragment extends BaseFragment implements OnMapReadyCallback 
 
     public void setMapHolder(MapView googleMapHolder) {
         this.mapHolder = googleMapHolder;
+    }
+
+    private void animateToCurrLocation(boolean instant) {
+        if (getStoreFactory() == null) {
+            return;
+        }
+        LatLng currentPosition = getStoreFactory().getLocationStore().getCurrentLocation();
+        if (currentPosition == null) {
+            return;
+        }
+
+        googleMapView.animateToLocation(currentPosition, 17f, instant);
     }
 
 }

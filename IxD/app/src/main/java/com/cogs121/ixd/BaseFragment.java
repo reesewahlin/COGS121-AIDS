@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 
 import com.cogs121.ixd.Controllers.ControllerFactory;
 import com.cogs121.ixd.Controllers.navigation.Page;
+import com.cogs121.ixd.stores.StoreFactory;
 
 /**
  * Created by Chad on 4/10/17.
@@ -22,6 +23,11 @@ public class BaseFragment extends Fragment implements ServiceContainer {
     @Override
     public ControllerFactory getControllerFactory() {
         return getActivity() != null ? ((BaseActivity) getActivity()).getControllerFactory() : null;
+    }
+
+    @Override
+    public StoreFactory getStoreFactory() {
+        return getActivity() != null ? ((BaseActivity) getActivity()).getStoreFactory() : null;
     }
 
     @Override
