@@ -8,5 +8,6 @@ public enum Page {
     NO_PAGE,
 
     MAIN_HOME,
-    MAIN_TEST
+    MAIN_TEST,
+    MAIN_MAP
 }

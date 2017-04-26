@@ -17,4 +17,11 @@
         android:text="Go to test"
         />
 
+    <Button
+        android:id="@+id/b_go_map"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:text="map"
+        />
+
 </LinearLayout>

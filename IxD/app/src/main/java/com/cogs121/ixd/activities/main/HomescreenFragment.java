@@ -23,6 +23,7 @@ public class HomescreenFragment extends BaseFragment {
 
     private TextView test;
     private Button button;
+    private Button map;
 
     public HomescreenFragment() {
         page = Page.MAIN_HOME;
@@ -45,6 +46,14 @@ public class HomescreenFragment extends BaseFragment {
             @Override
             public void onClick(View view) {
                 getControllerFactory().getNavigationController().transitionToPage(getPage(), Page.MAIN_TEST);
+            }
+        });
+
+        map = ViewUtils.getView(rootView, R.id.b_go_map);
+        map.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getControllerFactory().getNavigationController().transitionToPage(getPage(), Page.MAIN_MAP);
             }
         });
         return rootView;
