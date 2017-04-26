@@ -25,7 +25,7 @@ public class MapFragment extends BaseMapFragment {
     private GoogleMap googleMap;
 
     public MapFragment() {
-        page = Page.MAIN_HOME;
+        page = Page.MAIN_MAP;
     }
 
     public static MapFragment newInstance() {

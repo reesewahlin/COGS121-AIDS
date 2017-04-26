@@ -9,19 +9,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.cogs121.ixd.Controllers.navigation.Page;
 import com.cogs121.ixd.utils.GoogleMapView;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 /**
  * Created by Chad on 4/26/17.
  */
 
-public class BaseMapFragment extends BaseFragment implements OnMapReadyCallback {
+public class BaseMapFragment extends BaseFragment implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener, GoogleMap.OnInfoWindowLongClickListener {
 
     private MapView mapHolder;
     private GoogleMapView googleMapView;
@@ -52,6 +54,8 @@ public class BaseMapFragment extends BaseFragment implements OnMapReadyCallback 
                         .position(latLng));
             }
         });
+
+        gMap.setOnInfoWindowClickListener(this);
 
 
         animateToCurrLocation(true);
@@ -92,4 +96,14 @@ public class BaseMapFragment extends BaseFragment implements OnMapReadyCallback 
         googleMapView.animateToLocation(currentPosition, 17f, instant);
     }
 
+    @Override
+    public void onInfoWindowClick(Marker marker) {
+        getControllerFactory().getNavigationController().transitionToPage(getPage(), Page.MAIN_PROMO);
+    }
+
+    @Override
+    public void onInfoWindowLongClick(Marker marker) {
+        getControllerFactory().getNavigationController().transitionToPage(getPage(), Page.MAIN_PROMO);
+
+    }
 }

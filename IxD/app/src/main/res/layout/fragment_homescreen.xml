@@ -3,25 +3,29 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tv_homescreen_test"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Homescreen test"
-        />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/b_go_to_test"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:text="Go to test"
-        />
+        <TextView
+            android:id="@+id/tv_homescreen_test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Locus"
+            android:textSize="24dp"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="top|center"
+            />
 
-    <Button
-        android:id="@+id/b_go_map"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:text="map"
-        />
+        <Button
+            android:id="@+id/b_go_map"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:text="Map"
+            android:layout_gravity="center"
+            />
+
+    </FrameLayout>
+
 
 </LinearLayout>

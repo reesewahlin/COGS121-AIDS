@@ -20,8 +20,10 @@ public class PromoFragment extends BaseFragment {
 
     public static final String TAG = PromoFragment.class.getName();
 
+    private Button closeButton;
+
     public PromoFragment() {
-        page = Page.PROMO;
+        page = Page.MAIN_PROMO;
     }
 
     public static PromoFragment newInstance() {
@@ -35,6 +37,14 @@ public class PromoFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_promo, container, false);
+
+        closeButton = ViewUtils.getView(rootView, R.id.b_close_promo);
+        closeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getControllerFactory().getNavigationController().transitionToPage(getPage(), Page.MAIN_MAP);
+            }
+        });
 
         return rootView;
     }

@@ -22,8 +22,10 @@ public class HomescreenFragment extends BaseFragment {
     public static final String TAG = HomescreenFragment.class.getName();
 
     private TextView test;
-    private Button button;
+
     private Button map;
+
+    private Button promo;
 
     public HomescreenFragment() {
         page = Page.MAIN_HOME;
@@ -40,14 +42,6 @@ public class HomescreenFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_homescreen, container, false);
-
-        button = ViewUtils.getView(rootView, R.id.b_go_to_test);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getControllerFactory().getNavigationController().transitionToPage(getPage(), Page.MAIN_TEST);
-            }
-        });
 
         map = ViewUtils.getView(rootView, R.id.b_go_map);
         map.setOnClickListener(new View.OnClickListener() {

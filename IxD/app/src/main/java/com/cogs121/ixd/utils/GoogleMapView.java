@@ -26,6 +26,10 @@ public class GoogleMapView {
         mapView.setOnMapLongClickListener(onMapLongClickListener);
     }
 
+    public void setOnMapMarkerClickListener(GoogleMap.OnMarkerClickListener onMarkerClickListener) {
+        mapView.setOnMarkerClickListener(onMarkerClickListener);
+    }
+
     public void setLocationServices(Boolean enabled) {
         try {
             mapView.setMyLocationEnabled(enabled);

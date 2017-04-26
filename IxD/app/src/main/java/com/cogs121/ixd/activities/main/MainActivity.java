@@ -63,6 +63,10 @@ public class MainActivity extends BaseActivity implements NavigationControllerOb
                 fragmentTransaction.replace(R.id.fl_main, MapFragment.newInstance(), MapFragment.TAG);
                 fragmentTransaction.commit();
                 break;
+            case MAIN_PROMO:
+                fragmentTransaction.replace(R.id.fl_main, PromoFragment.newInstance(), PromoFragment.TAG);
+                fragmentTransaction.commit();
+                break;
             default:
                 Toast.makeText(getApplicationContext(), "Youuuuu can't do this", Toast.LENGTH_LONG).show();
                 break;
