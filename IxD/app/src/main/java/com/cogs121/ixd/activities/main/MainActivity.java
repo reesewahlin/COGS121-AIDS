@@ -1,5 +1,6 @@
 package com.cogs121.ixd.activities.main;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.widget.Toast;
@@ -21,6 +22,12 @@ public class MainActivity extends BaseActivity implements NavigationControllerOb
     private void openStartFragment() {
         Page currentPage = getControllerFactory().getNavigationController().getCurrentPage();
         getControllerFactory().getNavigationController().transitionToPage(currentPage, START_PAGE);
+    }
+
+    private void transitionToMapActivity() {
+        Intent intent = new Intent();
+
+        startActivity(intent);
     }
 
     @Override
@@ -45,7 +52,11 @@ public class MainActivity extends BaseActivity implements NavigationControllerOb
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         switch(toPage) {
             case MAIN_HOME:
-                fragmentTransaction.add(R.id.fl_main, HomescreenFragment.newInstance(), HomescreenFragment.TAG);
+                fragmentTransaction.replace(R.id.fl_main, HomescreenFragment.newInstance(), HomescreenFragment.TAG);
+                fragmentTransaction.commit();
+                break;
+            case MAIN_TEST:
+                fragmentTransaction.replace(R.id.fl_main, TestFragment.newInstance(), TestFragment.TAG);
                 fragmentTransaction.commit();
                 break;
             default:

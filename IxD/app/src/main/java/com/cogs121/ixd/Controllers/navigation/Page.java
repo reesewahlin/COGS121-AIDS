@@ -7,5 +7,6 @@ package com.cogs121.ixd.Controllers.navigation;
 public enum Page {
     NO_PAGE,
 
-    MAIN_HOME
+    MAIN_HOME,
+    MAIN_TEST
 }
