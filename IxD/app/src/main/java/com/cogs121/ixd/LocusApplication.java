@@ -31,7 +31,7 @@ public class LocusApplication extends Application implements ServiceContainer {
 
     @Override
     public ControllerFactory getControllerFactory() {
-        return null;
+        return controllerFactory;
     }
 
     @Override
