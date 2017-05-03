@@ -5,7 +5,7 @@
 - update
 
 ### Chad:
--update
+- update
 
 ### Nick:
 - Designed custom map marker, custom color scheme for the app, picked a font and narrowing down on a logo for branding of the app. 
