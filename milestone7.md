@@ -17,7 +17,7 @@
 - Designed custom map marker, custom color scheme for the app, picked a font and narrowing down on a logo for branding of the app. 
 - Research into possible augmented reality schema.
 
-## Screenshot: 
+## Screenshots: 
 ### Map Screen
 ![Map Screen Screenshot](https://github.com/reesewahlin/COGS121-Guography/blob/master/storyboards/M7_locuspoint.png)
 ### Promotion Creation Form
