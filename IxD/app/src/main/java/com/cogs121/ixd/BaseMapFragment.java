@@ -41,16 +41,16 @@ public class BaseMapFragment extends BaseFragment implements OnMapReadyCallback,
             googleMapView.setLocationServices(true);
         }
 
-        googleMapView.getUISettings().setMyLocationButtonEnabled(false);
-        googleMapView.getUISettings().setMapToolbarEnabled(false);
+        googleMapView.getUISettings().setMyLocationButtonEnabled(true);
+        googleMapView.getUISettings().setMapToolbarEnabled(true);
 
 
         googleMapView.setOnMapLongClickListener(new GoogleMap.OnMapLongClickListener() {
             @Override
             public void onMapLongClick(LatLng latLng) {
                 gMap.addMarker(new MarkerOptions()
-                        .title("Promotion")
-                        .snippet("cash money")
+                        .title("New Promotion?")
+                        .snippet("Create")
                         .position(latLng));
             }
         });
@@ -103,7 +103,6 @@ public class BaseMapFragment extends BaseFragment implements OnMapReadyCallback,
 
     @Override
     public void onInfoWindowLongClick(Marker marker) {
-        getControllerFactory().getNavigationController().transitionToPage(getPage(), Page.MAIN_PROMO);
-
+        marker.remove();
     }
 }

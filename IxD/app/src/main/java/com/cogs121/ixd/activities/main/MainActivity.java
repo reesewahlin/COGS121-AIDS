@@ -34,7 +34,9 @@ public class MainActivity extends BaseActivity implements NavigationControllerOb
     protected void onStart() {
         super.onStart();
         getControllerFactory().getNavigationController().addObserver(this);
-        openStartFragment();
+        if (getControllerFactory().getNavigationController().getCurrentPage() == Page.NO_PAGE) {
+            openStartFragment();
+        }
     }
 
     @Override
@@ -52,24 +54,33 @@ public class MainActivity extends BaseActivity implements NavigationControllerOb
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         switch(toPage) {
             case MAIN_HOME:
-                fragmentTransaction.replace(R.id.fl_main, HomescreenFragment.newInstance(), HomescreenFragment.TAG);
-                fragmentTransaction.commit();
+                switch(fromPage) {
+
+                }
+                fragmentTransaction.add(R.id.fl_main, HomescreenFragment.newInstance(), HomescreenFragment.TAG);
                 break;
             case MAIN_TEST:
-                fragmentTransaction.replace(R.id.fl_main, TestFragment.newInstance(), TestFragment.TAG);
-                fragmentTransaction.commit();
+                fragmentTransaction.add(R.id.fl_main, TestFragment.newInstance(), TestFragment.TAG);
                 break;
             case MAIN_MAP:
-                fragmentTransaction.replace(R.id.fl_main, MapFragment.newInstance(), MapFragment.TAG);
-                fragmentTransaction.commit();
+                switch (fromPage) {
+                    case MAIN_HOME:
+                        fragmentTransaction.add(R.id.fl_main, MapFragment.newInstance(), MapFragment.TAG);
+                        break;
+                    case MAIN_PROMO:
+                        getSupportFragmentManager().popBackStack();
+                        return;
+                }
                 break;
             case MAIN_PROMO:
-                fragmentTransaction.replace(R.id.fl_main, PromoFragment.newInstance(), PromoFragment.TAG);
-                fragmentTransaction.commit();
+                fragmentTransaction.add(R.id.fl_main, PromoFragment.newInstance(), PromoFragment.TAG);
                 break;
             default:
                 Toast.makeText(getApplicationContext(), "Youuuuu can't do this", Toast.LENGTH_LONG).show();
                 break;
         }
+        fragmentTransaction.addToBackStack(toPage.name());
+        fragmentTransaction.commit();
     }
+
 }
