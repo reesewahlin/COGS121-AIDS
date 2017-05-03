@@ -2,6 +2,8 @@ package com.cogs121.ixd;
 
 
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
@@ -15,6 +17,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -44,13 +47,17 @@ public class BaseMapFragment extends BaseFragment implements OnMapReadyCallback,
         googleMapView.getUISettings().setMyLocationButtonEnabled(true);
         googleMapView.getUISettings().setMapToolbarEnabled(true);
 
+        //TODO: make this proper
+        BitmapDrawable bitmapdraw=(BitmapDrawable)getResources().getDrawable(R.drawable.map_pin);
+        Bitmap b=bitmapdraw.getBitmap();
+        final Bitmap smallMarker = Bitmap.createScaledBitmap(b, 200, 125, false);
 
         googleMapView.setOnMapLongClickListener(new GoogleMap.OnMapLongClickListener() {
             @Override
             public void onMapLongClick(LatLng latLng) {
                 gMap.addMarker(new MarkerOptions()
                         .title("New Promotion?")
-                        .snippet("Create")
+                        .snippet("Create").icon(BitmapDescriptorFactory.fromBitmap(smallMarker))
                         .position(latLng));
             }
         });
