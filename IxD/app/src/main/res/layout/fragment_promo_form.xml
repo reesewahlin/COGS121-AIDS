@@ -87,11 +87,10 @@
 
         <Button
             android:id="@+id/b_confirm_promo_form"
-            android:layout_width="match_parent"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:text="Create"
-            android:textColor="#fff"
-            android:background="#3BA684"
+            android:textColor="#000"
             android:textSize="24dp"
             android:fontFamily="sans-serif-condensed"
             android:layout_gravity="center"
