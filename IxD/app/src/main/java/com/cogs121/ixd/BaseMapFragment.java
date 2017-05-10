@@ -14,6 +14,10 @@ import android.view.ViewGroup;
 import com.cogs121.ixd.Controllers.navigation.Page;
 import com.cogs121.ixd.utils.GoogleMapView;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.Status;
+import com.google.android.gms.location.places.Place;
+import com.google.android.gms.location.places.ui.PlaceAutocompleteFragment;
+import com.google.android.gms.location.places.ui.PlaceSelectionListener;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -26,7 +30,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
  * Created by Chad on 4/26/17.
  */
 
-public class BaseMapFragment extends BaseFragment implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener, GoogleMap.OnInfoWindowLongClickListener {
+public class BaseMapFragment extends BaseFragment implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener, GoogleMap.OnInfoWindowLongClickListener, PlaceSelectionListener {
 
     private MapView mapHolder;
     private GoogleMapView googleMapView;
@@ -75,7 +79,6 @@ public class BaseMapFragment extends BaseFragment implements OnMapReadyCallback,
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
     }
 
     @Nullable
@@ -83,6 +86,10 @@ public class BaseMapFragment extends BaseFragment implements OnMapReadyCallback,
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mapHolder.onCreate(savedInstanceState);
         mapHolder.getMapAsync(this);
+
+        PlaceAutocompleteFragment placeAutocompleteFragment = (PlaceAutocompleteFragment)
+                getActivity().getFragmentManager().findFragmentById(R.id.place_autocomplete_fragment);
+        placeAutocompleteFragment.setOnPlaceSelectedListener(this);
 
         return super.onCreateView(inflater, container, savedInstanceState);
     }
@@ -111,5 +118,16 @@ public class BaseMapFragment extends BaseFragment implements OnMapReadyCallback,
     @Override
     public void onInfoWindowLongClick(Marker marker) {
         marker.remove();
+    }
+
+    @Override
+    public void onPlaceSelected(Place place) {
+        LatLng search = place.getLatLng();
+        googleMapView.animateToLocation(search, 17f, true);
+    }
+
+    @Override
+    public void onError(Status status) {
+
     }
 }
