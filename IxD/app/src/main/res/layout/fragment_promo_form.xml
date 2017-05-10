@@ -2,31 +2,37 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff"
+    android:background="#3BA684"
     >
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Title"
-        android:textSize="25sp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"/>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:layout_marginLeft="10dp"
-        android:id="@+id/et_promo_form_title" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:hint="Title..."
+            android:shadowColor="#fff"
+            android:textColor="#fff"
+            android:textColorHint="#fff"
+            android:fontFamily="sans-serif-condensed"
+            android:layout_marginLeft="10dp"
+            android:textSize="24dp"
+            android:layout_gravity="left"
+            android:id="@+id/et_promo_form_title" />
+
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Image"
-        android:textSize="25sp"
+
+        android:textColor="#fff"
+        android:textColorHint="#fff"
+        android:fontFamily="sans-serif-condensed"
+        android:textSize="24dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="40dp"/>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -34,37 +40,36 @@
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:text="Choose from library"
+            android:textAllCaps="false"
             android:layout_centerInParent="true"
             android:id="@+id/b_promo_form_image"/>
     </RelativeLayout>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Details"
-        android:textSize="25sp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
+        android:hint="Details..."
+        android:textSize="24dp"
+        android:layout_marginTop="40dp"
+        android:textColor="#fff"
+        android:textColorHint="#fff"
+        android:fontFamily="sans-serif-condensed"
         android:layout_marginLeft="10dp"
         android:id="@+id/et_promo_form_details" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Date"
-        android:textSize="25sp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="date"
+        android:textColor="#fff"
+        android:textColorHint="#fff"
+        android:fontFamily="sans-serif-condensed"
+        android:textSize="24dp"
+        android:hint="Date.."
+        android:layout_marginTop="40dp"
         android:ems="10"
         android:layout_marginLeft="10dp"
         android:id="@+id/et_promo_form_date" />
@@ -76,13 +81,25 @@
         android:layout_marginLeft="10dp"
         android:id="@+id/tv_promo_form_location" />
 
-    <Button
-        android:id="@+id/b_confirm_promo_form"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Create"
-        android:textAllCaps="false"
-        />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/b_confirm_promo_form"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Create"
+            android:textColor="#fff"
+            android:background="#3BA684"
+            android:textSize="24dp"
+            android:fontFamily="sans-serif-condensed"
+            android:layout_gravity="center"
+            android:textAllCaps="false"
+            />
+    </FrameLayout>
+
+
 
 
 </LinearLayout>
