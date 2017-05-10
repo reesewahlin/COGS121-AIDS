@@ -13,6 +13,16 @@ public class LocationStore {
     private LatLng currentLocation = null;
     private Location lastKnownLocation;
 
+    public LatLng getPromoLocation() {
+        return promoLocation;
+    }
+
+    public void setPromoLocation(LatLng promoLocation) {
+        this.promoLocation = promoLocation;
+    }
+
+    private LatLng promoLocation;
+
     public LatLng getCurrentLocation() {
         return currentLocation;
     }

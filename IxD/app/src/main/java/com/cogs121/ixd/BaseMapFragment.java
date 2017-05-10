@@ -4,6 +4,7 @@ package com.cogs121.ixd;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import android.location.Address;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
@@ -13,6 +14,7 @@ import android.view.ViewGroup;
 
 import com.cogs121.ixd.Controllers.navigation.Page;
 import com.cogs121.ixd.utils.GoogleMapView;
+import com.cogs121.ixd.utils.LocusPoint;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.places.Place;
@@ -40,6 +42,8 @@ public class BaseMapFragment extends BaseFragment implements OnMapReadyCallback,
 
     private LatLng currentLocation;
 
+    private Address address;
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
         this.googleMapView = new GoogleMapView(getContext(), googleMap);
@@ -60,9 +64,21 @@ public class BaseMapFragment extends BaseFragment implements OnMapReadyCallback,
             @Override
             public void onMapLongClick(LatLng latLng) {
                 gMap.addMarker(new MarkerOptions()
-                        .title("Vans")
-                        .snippet("Surf Competition").icon(BitmapDescriptorFactory.fromBitmap(smallMarker))
+                        .title("Create new promo?")
+                        .snippet("").icon(BitmapDescriptorFactory.fromBitmap(smallMarker))
                         .position(latLng));
+            }
+        });
+
+        gMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(Marker marker) {
+                getStoreFactory().getLocationStore().setPromoLocation(marker.getPosition());
+                LocusPoint lp = getStoreFactory().getLocusPointStore().getLocusPointByLocation(marker.getPosition().toString());
+                if (lp != null) {
+                    marker.setTitle(lp.getLpTitle());
+                }
+                return false;
             }
         });
 
@@ -112,7 +128,15 @@ public class BaseMapFragment extends BaseFragment implements OnMapReadyCallback,
 
     @Override
     public void onInfoWindowClick(Marker marker) {
-        getControllerFactory().getNavigationController().transitionToPage(getPage(), Page.MAIN_PROMO);
+        LocusPoint lp  = getStoreFactory().getLocusPointStore().getLocusPointByLocation(marker.getPosition().toString());
+        if(lp == null) {
+            marker.hideInfoWindow();
+            getControllerFactory().getNavigationController().transitionToPage(getPage(), Page.MAIN_PROMO_FORM);
+        } else {
+            marker.hideInfoWindow();
+            getControllerFactory().getNavigationController().transitionToPage(getPage(), Page.MAIN_PROMO);
+        }
+
     }
 
     @Override

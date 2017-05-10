@@ -2,8 +2,8 @@ package com.cogs121.ixd.stores.locuspoint;
 
 import com.cogs121.ixd.utils.LocusPoint;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Chad on 5/9/17.
@@ -11,17 +11,22 @@ import java.util.List;
 
 public class LocusPointStore {
 
-    private List<LocusPoint> locusPointList = new ArrayList<>();
+    private Map<String, LocusPoint> locusPointList = new HashMap<>();
 
     public void addLocusPoint(LocusPoint locusPoint) {
         if (locusPoint == null) {
             return;
         }
-        locusPointList.add(locusPoint);
+        String latlng = locusPoint.getLpLocation();
+        locusPointList.put(latlng, locusPoint);
     }
 
     public void removeLocusPoint(LocusPoint deleteLocusPoint) {
         locusPointList.remove(deleteLocusPoint);
+    }
+
+    public LocusPoint getLocusPointByLocation(String location) {
+        return locusPointList.get(location);
     }
 
 

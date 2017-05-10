@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#3BA684"
+    >
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -11,9 +13,11 @@
             android:id="@+id/tv_homescreen_test"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Locus"
-            android:textSize="24dp"
-            android:layout_marginTop="30dp"
+            android:text="locus"
+            android:textSize="72dp"
+            android:textColor="#fff"
+            android:fontFamily="sans-serif-condensed"
+            android:layout_marginTop="60dp"
             android:layout_gravity="top|center"
             />
 
@@ -21,7 +25,12 @@
             android:id="@+id/b_go_map"
             android:layout_width="200dp"
             android:layout_height="200dp"
-            android:text="Map"
+            android:text="map"
+            android:textSize="36dp"
+            android:textColor="#fff"
+            android:textAllCaps="false"
+            android:fontFamily="sans-serif-condensed"
+            android:background="#3BA684"
             android:layout_gravity="center"
             />
 

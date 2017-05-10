@@ -69,6 +69,13 @@
         android:layout_marginLeft="10dp"
         android:id="@+id/et_promo_form_date" />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/tv_promo_form_location" />
+
     <Button
         android:id="@+id/b_confirm_promo_form"
         android:layout_width="wrap_content"
