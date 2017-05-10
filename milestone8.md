@@ -6,3 +6,8 @@
 This prototype shows the promotion creation screen. It includes a logo and menu bar at the top, and features such as adding a photo,
 customizing the company and promotion name, and adding more information as well as a qr code.
 || Nick Campbell
+
+## Paper Prototype 2 - Login Page
+![alt-tag](https://github.com/reesewahlin/COGS121-Guography/blob/master/storyboards/Screen%20Shot%202017-05-10%20at%2012.43.22%20PM.png)
+This prototype shows the login page. A user is able to sign in using their username and password, sign up if they dont have an account yet, recover their password, or view more information about the app.
+|| Reese Wahlin
