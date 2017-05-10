@@ -18,10 +18,12 @@ Users now have the ability to search for locations they are traveling to or are 
 
 ### Creating new Promotion:
 ![alt-tag](https://github.com/reesewahlin/COGS121-Guography/blob/master/storyboards/create_new_promo.png)
-Merchants can long press the map and drop a locus point 
+Merchants can long press the map and drop a locus point at which point they are asked if they would like to create a new promotion at that location.
 
 ### Promotion Creation Form:
 ![alt-tag](https://github.com/reesewahlin/COGS121-Guography/blob/master/storyboards/promo_creation_form.png)
 Verified Merchants can construct new promotions using this sleek new designed promotion creation form.
 
-
+### Future Design:
+![alt-tag](https://github.com/reesewahlin/COGS121-Guography/blob/master/storyboards/M9_preliminary_screen_mockups.png)
+Here are some high fidelity plans we seek to work towards in styling our app.
