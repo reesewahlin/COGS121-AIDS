@@ -8,6 +8,6 @@ customizing the company and promotion name, and adding more information as well 
 || Nick Campbell
 
 ## Paper Prototype 2 - Login Page
-![alt-tag](COGS121-Guography/storyboards/Screen Shot 2017-05-10 at 12.43.22 PM.png)
+![alt-tag](https://github.com/reesewahlin/COGS121-Guography/storyboards/Screen Shot 2017-05-10 at 12.43.22 PM.png)
 This prototype shows the login page. A user is able to sign in using their username and password, sign up if they dont have an account yet, recover their password, or view more information about the app.
 || Reese Wahlin
