@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.cogs121.ixd.BaseMapFragment;
 import com.cogs121.ixd.Controllers.navigation.Page;
@@ -24,6 +25,8 @@ public class MapFragment extends BaseMapFragment {
     private MapView mapView;
     private GoogleMap googleMap;
 
+    private Button openPromoForm;
+
     public MapFragment() {
         page = Page.MAIN_MAP;
     }
@@ -39,6 +42,14 @@ public class MapFragment extends BaseMapFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_map, container, false);
+
+        openPromoForm = ViewUtils.getView(rootView, R.id.b_open_promo_form);
+        openPromoForm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getControllerFactory().getNavigationController().transitionToPage(getPage(), Page.MAIN_PROMO_FORM);
+            }
+        });
 
         setMapHolder((MapView) ViewUtils.getView(rootView, R.id.fl_main_map_holder));
         super.onCreateView(inflater, container, savedInstanceState);

@@ -10,5 +10,6 @@ public enum Page {
     MAIN_HOME,
     MAIN_TEST,
     MAIN_MAP,
-    MAIN_PROMO
+    MAIN_PROMO,
+    MAIN_PROMO_FORM
 }

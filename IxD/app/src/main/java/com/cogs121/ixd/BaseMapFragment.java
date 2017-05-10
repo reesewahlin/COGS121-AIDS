@@ -50,14 +50,14 @@ public class BaseMapFragment extends BaseFragment implements OnMapReadyCallback,
         //TODO: make this proper
         BitmapDrawable bitmapdraw=(BitmapDrawable)getResources().getDrawable(R.drawable.map_pin);
         Bitmap b=bitmapdraw.getBitmap();
-        final Bitmap smallMarker = Bitmap.createScaledBitmap(b, 200, 125, false);
+        final Bitmap smallMarker = Bitmap.createScaledBitmap(b, 125, 175, false);
 
         googleMapView.setOnMapLongClickListener(new GoogleMap.OnMapLongClickListener() {
             @Override
             public void onMapLongClick(LatLng latLng) {
                 gMap.addMarker(new MarkerOptions()
-                        .title("New Promotion?")
-                        .snippet("Create").icon(BitmapDescriptorFactory.fromBitmap(smallMarker))
+                        .title("Vans")
+                        .snippet("Surf Competition").icon(BitmapDescriptorFactory.fromBitmap(smallMarker))
                         .position(latLng));
             }
         });

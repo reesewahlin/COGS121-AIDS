@@ -70,10 +70,16 @@ public class MainActivity extends BaseActivity implements NavigationControllerOb
                     case MAIN_PROMO:
                         getSupportFragmentManager().popBackStack();
                         return;
+                    case MAIN_PROMO_FORM:
+                        getSupportFragmentManager().popBackStack();
+                        return;
                 }
                 break;
             case MAIN_PROMO:
                 fragmentTransaction.add(R.id.fl_main, PromoFragment.newInstance(), PromoFragment.TAG);
+                break;
+            case MAIN_PROMO_FORM:
+                fragmentTransaction.add(R.id.fl_main, PromoFormFragment.newInstance(), PromoFormFragment.TAG);
                 break;
             default:
                 Toast.makeText(getApplicationContext(), "Youuuuu can't do this", Toast.LENGTH_LONG).show();
