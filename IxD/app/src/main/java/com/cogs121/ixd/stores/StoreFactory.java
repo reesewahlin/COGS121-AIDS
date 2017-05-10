@@ -3,6 +3,7 @@ package com.cogs121.ixd.stores;
 import android.content.Context;
 
 import com.cogs121.ixd.stores.location.LocationStore;
+import com.cogs121.ixd.stores.locuspoint.LocusPointStore;
 
 /**
  * Created by Chad on 4/26/17.
@@ -14,6 +15,7 @@ public class StoreFactory {
     private Context context;
 
     private LocationStore locationStore;
+    private LocusPointStore locusPointStore;
 
     private static boolean isTornDown = false;
 
@@ -39,6 +41,13 @@ public class StoreFactory {
         return locationStore;
     }
 
+    public LocusPointStore getLocusPointStore() {
+        if (locusPointStore == null) {
+            locusPointStore = new LocusPointStore();
+        }
+        return locusPointStore;
+    }
+
     public void tearDown() {
         reset();
         storeFactory = null;
@@ -47,6 +56,7 @@ public class StoreFactory {
 
     private void reset() {
         locationStore = null;
+        locusPointStore = null;
          isTornDown = false;
     }
 
