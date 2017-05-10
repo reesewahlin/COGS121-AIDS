@@ -10,12 +10,17 @@ public class LocusPoint {
     private String lpDetails;
     private String lpDate;
 
+
+
+    private String lpLocation;
+
     private boolean isCreate = false;
 
-    public LocusPoint(String title, String details, String date) {
+    public LocusPoint(String title, String details, String date, String location) {
         this.lpTitle = title;
         this.lpDate = date;
         this.lpDetails = details;
+        this.lpLocation = location;
     }
 
     public void setLpTitle(String title) {
@@ -41,4 +46,21 @@ public class LocusPoint {
     public String getLpDate() {
         return lpDate;
     }
+
+    public String getLpLocation() {
+        return lpLocation;
+    }
+
+    public void setLpLocation(String lpLocation) {
+        this.lpLocation = lpLocation;
+    }
+
+    public void createLocusPoint() {
+        isCreate = true;
+    }
+
+    public boolean isCreated() {
+        return isCreate;
+    }
+
 }

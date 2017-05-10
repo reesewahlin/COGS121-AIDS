@@ -43,14 +43,6 @@ public class MapFragment extends BaseMapFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_map, container, false);
 
-        openPromoForm = ViewUtils.getView(rootView, R.id.b_open_promo_form);
-        openPromoForm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getControllerFactory().getNavigationController().transitionToPage(getPage(), Page.MAIN_PROMO_FORM);
-            }
-        });
-
         setMapHolder((MapView) ViewUtils.getView(rootView, R.id.fl_main_map_holder));
         super.onCreateView(inflater, container, savedInstanceState);
 

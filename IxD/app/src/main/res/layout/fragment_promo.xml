@@ -15,6 +15,7 @@
             android:layout_height="wrap_content">
 
             <TextView
+                android:id="@+id/tv_promo_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20dp"
@@ -71,6 +72,7 @@
                 />
 
             <TextView
+                android:id="@+id/tv_promo_location"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="14dp"
@@ -87,6 +89,7 @@
                 />
 
             <TextView
+                android:id="@+id/tv_promo_details"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="14dp"
@@ -102,6 +105,7 @@
                 />
 
             <TextView
+                android:id="@+id/tv_promo_date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="14dp"
