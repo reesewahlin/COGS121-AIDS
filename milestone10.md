@@ -1,5 +1,5 @@
-# Team C8: Guography (Nick Campbell, Reese Wahlin, Chad Bettencourt)
-## App Name: Locus
+# Team C8: Guography 
+## App Name: Locus (Nick Campbell, Reese Wahlin, Chad Bettencourt)
 ### Elevator Pitch & Heilmeier's Catechism 
 - What are you trying to do? (Absolutely no jargon)
 - How is it done today, and what are the limits of current practice?
