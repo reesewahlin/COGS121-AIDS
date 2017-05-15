@@ -1,5 +1,5 @@
 # Team C8: Guography 
-## App Name: Locus (Nick Campbell, Reese Wahlin, Chad Bettencourt)
+## App Name: *Locus* (Nick Campbell, Reese Wahlin, Chad Bettencourt)
 ### Elevator Pitch & Heilmeier's Catechism 
 - **What are you trying to do?**   
 We're trying to add another dimension to the consumer experience by tangibly rewarding customer engagement through targeted, location-based deals and discounts. Ultimately, we aim to allow companies to create "locus points", or local deals, which present users with a unique deal, event, or promotion happening around them. In a phrase, we want to utilize the power of modern technology to revolutionize the current marketing environment in a forward-facing, linearly growing, but ultimately positive direction.
