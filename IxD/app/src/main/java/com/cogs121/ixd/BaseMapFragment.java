@@ -78,6 +78,7 @@ public class BaseMapFragment extends BaseFragment implements OnMapReadyCallback,
                 if (lp != null) {
                     marker.setTitle(lp.getLpTitle());
                 }
+
                 return false;
             }
         });

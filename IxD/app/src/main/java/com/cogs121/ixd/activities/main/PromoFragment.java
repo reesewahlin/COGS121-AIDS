@@ -53,23 +53,23 @@ public class PromoFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_promo, container, false);
-        locusPoint = getStoreFactory().getLocusPointStore().getLocusPointByLocation(getStoreFactory().getLocationStore().getPromoLocation().toString());
-        tvPromoDate = ViewUtils.getView(rootView, R.id.tv_promo_date);
-        tvPromoDate.setText(locusPoint.getLpDate());
-        tvPromoDetails = ViewUtils.getView(rootView, R.id.tv_promo_details);
-        tvPromoDetails.setText(locusPoint.getLpDetails());
-        tvPromoLocation = ViewUtils.getView(rootView, R.id.tv_promo_location);
-        tvPromoLocation.setText(getLocality());
-        tvPromoTitle = ViewUtils.getView(rootView, R.id.tv_promo_title);
-        tvPromoTitle.setText(locusPoint.getLpTitle());
-
-        closeButton = ViewUtils.getView(rootView, R.id.b_close_promo);
-        closeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getControllerFactory().getNavigationController().transitionToPage(getPage(), Page.MAIN_MAP);
-            }
-        });
+//        locusPoint = getStoreFactory().getLocusPointStore().getLocusPointByLocation(getStoreFactory().getLocationStore().getPromoLocation().toString());
+//        tvPromoDate = ViewUtils.getView(rootView, R.id.tv_promo_date);
+//        tvPromoDate.setText(locusPoint.getLpDate());
+//        tvPromoDetails = ViewUtils.getView(rootView, R.id.tv_promo_details);
+//        tvPromoDetails.setText(locusPoint.getLpDetails());
+//        tvPromoLocation = ViewUtils.getView(rootView, R.id.tv_promo_location);
+//        tvPromoLocation.setText(getLocality());
+//        tvPromoTitle = ViewUtils.getView(rootView, R.id.tv_promo_title);
+//        tvPromoTitle.setText(locusPoint.getLpTitle());
+//
+//        closeButton = ViewUtils.getView(rootView, R.id.b_close_promo);
+//        closeButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                getControllerFactory().getNavigationController().transitionToPage(getPage(), Page.MAIN_MAP);
+//            }
+//        });
 
         return rootView;
     }
