@@ -36,167 +36,162 @@
                 android:fontFamily="raleway" />
         </RelativeLayout>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:shadowColor="#fff"
-        android:textColor="#3BA684"
-        android:textColorHint="#aaa"
-        android:fontFamily="sans-serif-condensed"
-        android:textSize="24dp"
-        android:layout_gravity="left"
-        android:id="@+id/et_promo_form_title"
-        android:typeface="normal"
-        android:background="#fff"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp" />
-
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:hint="Locus Point Name..."
-        android:shadowColor="#fff"
-        android:textColor="#aaa"
-        android:textColorHint="#aaa"
-        android:fontFamily="sans-serif-condensed"
-        android:textSize="24dp"
-        android:layout_gravity="left"
-        android:id="@+id/et_promo_form_lp_name"
-        android:typeface="normal"
-        android:background="#fff"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:hint="Expiration Date..."
-        android:shadowColor="#fff"
-        android:textColor="#aaa"
-        android:textColorHint="#aaa"
-        android:fontFamily="sans-serif-condensed"
-        android:textSize="24dp"
-        android:layout_gravity="left"
-        android:id="@+id/et_promo_form_date"
-        android:typeface="normal"
-        android:background="#fff"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp" />
-
-
-    <EditText
-        android:layout_width="match_parent"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:hint="Details..."
-        android:textSize="24dp"
-        android:textColor="#aaa"
-        android:textColorHint="#aaa"
-        android:fontFamily="sans-serif-condensed"
-        android:id="@+id/et_promo_form_details"
-        android:typeface="normal"
-        android:background="#fff"
-        android:layout_height="200dp"
-        android:textAlignment="inherit"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp" />
-
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:id="@+id/tv_promo_form_location"
-        android:gravity="center_horizontal" />
-
-
-
-        <EditText
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:hint="Locus Point Name..."
-            android:shadowColor="#fff"
-            android:textColor="#333"
-            android:textColorHint="#aaa"
-            android:fontFamily="sans-serif-condensed"
-            android:textSize="24dp"
-            android:layout_gravity="left"
-            android:id="@+id/et_promo_form_lp_name"
-            android:typeface="normal"
-            android:background="#fff"
-            android:layout_marginBottom="5dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp" />
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Company Name: "
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:hint="Company Name..."
+                android:shadowColor="#fff"
+                android:textColor="#3BA684"
+                android:textColorHint="#ccc"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="24dp"
+                android:layout_gravity="left"
+                android:id="@+id/et_promo_form_title"
+                android:typeface="normal"
+                android:background="#ffe9e2"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp" />
+        </LinearLayout>
 
-        <EditText
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="date"
-            android:ems="10"
-            android:hint="Expiration Date..."
-            android:shadowColor="#fff"
-            android:textColor="#333"
-            android:textColorHint="#aaa"
-            android:fontFamily="sans-serif-condensed"
-            android:textSize="24dp"
-            android:layout_gravity="left"
-            android:id="@+id/et_promo_form_date"
-            android:typeface="normal"
-            android:background="#fff"
-            android:layout_marginBottom="5dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp" />
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Locus Point Name: "
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"/>
 
-        <EditText
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:hint="Locus Point Name..."
+                android:shadowColor="#fff"
+                android:textColor="#333"
+                android:textColorHint="#ccc"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="24dp"
+                android:layout_gravity="left"
+                android:id="@+id/et_promo_form_lp_name"
+                android:typeface="normal"
+                android:background="#ffe9e2"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp" />
+        </LinearLayout>
+
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType=""
-            android:ems="10"
-            android:hint="Location..."
-            android:shadowColor="#fff"
-            android:textColor="#333"
-            android:textColorHint="#aaa"
-            android:fontFamily="sans-serif-condensed"
-            android:textSize="24dp"
-            android:layout_gravity="left"
-            android:id="@+id/tv_promo_form_location"
-            android:typeface="normal"
-            android:background="#fff"
-            android:layout_marginBottom="5dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp" />
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Expiration Date: "
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"/>
 
-        <EditText
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="date"
+                android:ems="10"
+                android:hint="Expiration Date..."
+                android:shadowColor="#fff"
+                android:textColor="#333"
+                android:textColorHint="#ccc"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="24dp"
+                android:layout_gravity="left"
+                android:id="@+id/et_promo_form_date"
+                android:typeface="normal"
+                android:background="#ffe9e2"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:hint="Details..."
-            android:textSize="24dp"
-            android:textColor="#333"
-            android:textColorHint="#aaa"
-            android:fontFamily="sans-serif-condensed"
-            android:id="@+id/et_promo_form_details"
-            android:typeface="normal"
-            android:background="#fff"
-            android:layout_gravity="start"
-            android:textAlignment="inherit"
-            android:layout_marginBottom="5dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp" />
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Location: "
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType=""
+                android:ems="10"
+                android:hint="Location..."
+                android:shadowColor="#fff"
+                android:textColor="#333"
+                android:textColorHint="#ccc"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="24dp"
+                android:layout_gravity="left"
+                android:id="@+id/tv_promo_form_location"
+                android:typeface="normal"
+                android:background="#ffe9e2"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Details: "
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:hint="Details..."
+                android:textSize="24dp"
+                android:textColor="#333"
+                android:textColorHint="#ccc"
+                android:fontFamily="sans-serif-condensed"
+                android:id="@+id/et_promo_form_details"
+                android:typeface="normal"
+                android:background="#ffe9e2"
+                android:layout_gravity="start"
+                android:textAlignment="inherit"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp" />
+        </LinearLayout>
 
         <FrameLayout
             android:layout_width="match_parent"
