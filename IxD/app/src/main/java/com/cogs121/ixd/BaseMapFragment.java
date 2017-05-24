@@ -64,7 +64,7 @@ public class BaseMapFragment extends BaseFragment implements OnMapReadyCallback,
         googleMapView.setOnMapLongClickListener(new GoogleMap.OnMapLongClickListener() {
             @Override
             public void onMapLongClick(LatLng latLng) {
-                if (getStoreFactory().getUserStore().isEnterprise()) {
+                if (getStoreFactory().getEnterpriseUserStore().isEnterprise()) {
                     gMap.addMarker(new MarkerOptions()
                             .title("Create new promo?")
                             .snippet("").icon(BitmapDescriptorFactory.fromBitmap(smallMarker))
