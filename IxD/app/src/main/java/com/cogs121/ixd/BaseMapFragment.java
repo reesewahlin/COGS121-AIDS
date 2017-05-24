@@ -1,6 +1,7 @@
 package com.cogs121.ixd;
 
 
+import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -8,10 +9,10 @@ import android.location.Address;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.cogs121.ixd.Controllers.navigation.Page;
 import com.cogs121.ixd.utils.GoogleMapView;
@@ -19,7 +20,6 @@ import com.cogs121.ixd.utils.LocusPoint;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.places.Place;
-import com.google.android.gms.location.places.ui.PlaceAutocompleteFragment;
 import com.google.android.gms.location.places.ui.PlaceSelectionListener;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
@@ -70,7 +70,16 @@ public class BaseMapFragment extends BaseFragment implements OnMapReadyCallback,
                             .snippet("").icon(BitmapDescriptorFactory.fromBitmap(smallMarker))
                             .position(latLng));
                 } else {
-                    Toast.makeText(getContext(), "Sorry, you can't create a promo unless you are a registered company", Toast.LENGTH_LONG);
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                    builder.setMessage("Only verified accounts can create Locus points").setTitle("Whoops");
+                    AlertDialog dialog = builder.create();
+                    builder.setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
+                        }
+                    });
+                    dialog.show();
                 }
                 }
 
@@ -109,10 +118,6 @@ public class BaseMapFragment extends BaseFragment implements OnMapReadyCallback,
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mapHolder.onCreate(savedInstanceState);
         mapHolder.getMapAsync(this);
-
-        PlaceAutocompleteFragment placeAutocompleteFragment = (PlaceAutocompleteFragment)
-                getActivity().getFragmentManager().findFragmentById(R.id.place_autocomplete_fragment);
-        placeAutocompleteFragment.setOnPlaceSelectedListener(this);
 
         return super.onCreateView(inflater, container, savedInstanceState);
     }
