@@ -50,7 +50,9 @@ public class PromoFormFragment extends BaseFragment {
 
     private int IMAGE_PICKER_SELECT = 1;
 
-    private EditText etTitle;
+
+    private TextView etTitle;
+
     private EditText etDetails;
     private EditText etDate;
     private EditText etLpName;
@@ -93,8 +95,9 @@ public class PromoFormFragment extends BaseFragment {
         createPromo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String title = etTitle.getText().toString();
                 String lpName = etLpName.getText().toString();
+                String title = getStoreFactory().getUserStore().getCompanyName();
+              
                 String details = etDetails.getText().toString();
                 String date = etDate.getText().toString();
                 String location = promoLocation.toString();
@@ -122,8 +125,8 @@ public class PromoFormFragment extends BaseFragment {
                 getControllerFactory().getNavigationController().transitionToPage(getPage(), Page.MAIN_MAP);
             }
         });
-
         etTitle = ViewUtils.getView(rootView, R.id.et_promo_form_title);
+        etTitle.setText(getStoreFactory().getUserStore().getCompanyName());
         etLpName = ViewUtils.getView(rootView, R.id.et_promo_form_lp_name);
         etDetails = ViewUtils.getView(rootView, R.id.et_promo_form_details);
         etDate = ViewUtils.getView(rootView, R.id.et_promo_form_date);
