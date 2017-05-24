@@ -62,6 +62,9 @@ public class MainActivity extends BaseActivity implements NavigationControllerOb
                     case MAIN_CREATE_COMPANY:
                         getSupportFragmentManager().popBackStack();
                         return;
+                    case MAIN_CREATE_USER:
+                        getSupportFragmentManager().popBackStack();
+                        return;
                 }
                 break;
             case MAIN_TEST:
@@ -92,6 +95,10 @@ public class MainActivity extends BaseActivity implements NavigationControllerOb
             case MAIN_CREATE_COMPANY:
                 fragmentTransaction.setCustomAnimations(R.anim.slide_bottom_to_center, R.anim.none, R.anim.none, R.anim.slide_center_to_bottom);
                 fragmentTransaction.add(R.id.fl_main, CreateCompanyUserFragment.newInstance(), CreateCompanyUserFragment.TAG);
+                break;
+            case MAIN_CREATE_USER:
+                fragmentTransaction.setCustomAnimations(R.anim.slide_bottom_to_center, R.anim.none, R.anim.none, R.anim.slide_center_to_bottom);
+                fragmentTransaction.add(R.id.fl_main, CreateUserLoginFragment.newInstance(), CreateUserLoginFragment.TAG);
                 break;
             default:
                 Toast.makeText(getApplicationContext(), "Youuuuu can't do this", Toast.LENGTH_LONG).show();

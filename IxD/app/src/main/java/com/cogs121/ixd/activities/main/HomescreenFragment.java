@@ -60,9 +60,12 @@ public class HomescreenFragment extends BaseFragment {
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (b) {
                     tvSwitchText.setText("Enterprise");
+                    getStoreFactory().getEnterpriseUserStore().setEnterprise(true);
                     getControllerFactory().getNavigationController().transitionToPage(getPage(), Page.MAIN_CREATE_COMPANY);
                 } else {
                     tvSwitchText.setText("User");
+                    getStoreFactory().getEnterpriseUserStore().setEnterprise(false);
+                    getControllerFactory().getNavigationController().transitionToPage(getPage(), Page.MAIN_CREATE_USER);
                 }
             }
         });

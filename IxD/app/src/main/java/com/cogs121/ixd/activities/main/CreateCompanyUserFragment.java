@@ -49,7 +49,7 @@ public class CreateCompanyUserFragment extends BaseFragment {
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getStoreFactory().getUserStore().createUser(companyEmail.getText().toString(), true);
+                getStoreFactory().getEnterpriseUserStore().createEnterpriseUser(companyEmail.getText().toString(), true);
                 getControllerFactory().getNavigationController().transitionToPage(getPage(), Page.MAIN_HOME);
             }
         });

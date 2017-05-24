@@ -2,7 +2,8 @@ package com.cogs121.ixd.stores;
 
 import android.content.Context;
 
-import com.cogs121.ixd.stores.UserStore.UserStore;
+import com.cogs121.ixd.stores.UserStore.ConsumerUserStore;
+import com.cogs121.ixd.stores.UserStore.EnterpriseUserStore;
 import com.cogs121.ixd.stores.location.LocationStore;
 import com.cogs121.ixd.stores.locuspoint.LocusPointStore;
 
@@ -17,7 +18,8 @@ public class StoreFactory {
 
     private LocationStore locationStore;
     private LocusPointStore locusPointStore;
-    private UserStore userStore;
+    private EnterpriseUserStore enterpriseUserStore;
+    private ConsumerUserStore consumerUserStore;
 
     private static boolean isTornDown = false;
 
@@ -50,11 +52,18 @@ public class StoreFactory {
         return locusPointStore;
     }
 
-    public UserStore getUserStore() {
-        if(userStore == null) {
-            userStore = new UserStore();
+    public EnterpriseUserStore getEnterpriseUserStore() {
+        if(enterpriseUserStore == null) {
+            enterpriseUserStore = new EnterpriseUserStore();
         }
-        return userStore;
+        return enterpriseUserStore;
+    }
+
+    public ConsumerUserStore getConsumerUserStore() {
+        if(consumerUserStore == null) {
+            consumerUserStore = new ConsumerUserStore();
+        }
+        return consumerUserStore;
     }
 
     public void tearDown() {
@@ -66,7 +75,8 @@ public class StoreFactory {
     private void reset() {
         locationStore = null;
         locusPointStore = null;
-        userStore = null;
+        enterpriseUserStore = null;
+        consumerUserStore = null;
         isTornDown = false;
     }
 
