@@ -1,5 +1,6 @@
 package com.cogs121.ixd.activities.main;
 
+import android.content.Context;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cogs121.ixd.BaseFragment;
 import com.cogs121.ixd.Controllers.navigation.Page;
@@ -31,10 +33,14 @@ public class PromoFragment extends BaseFragment {
     private LocusPoint locusPoint;
 
     private Button closeButton;
+    private Button saveButton;
+    private Button qrButton;
+
     private TextView tvPromoLocation;
     private TextView tvPromoDate;
     private TextView tvPromoDetails;
     private TextView tvPromoTitle;
+    private TextView tvPromoLpName;
 
     private Address address;
 
@@ -51,25 +57,59 @@ public class PromoFragment extends BaseFragment {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_promo, container, false);
-//        locusPoint = getStoreFactory().getLocusPointStore().getLocusPointByLocation(getStoreFactory().getLocationStore().getPromoLocation().toString());
-//        tvPromoDate = ViewUtils.getView(rootView, R.id.tv_promo_date);
-//        tvPromoDate.setText(locusPoint.getLpDate());
-//        tvPromoDetails = ViewUtils.getView(rootView, R.id.tv_promo_details);
-//        tvPromoDetails.setText(locusPoint.getLpDetails());
-//        tvPromoLocation = ViewUtils.getView(rootView, R.id.tv_promo_location);
-//        tvPromoLocation.setText(getLocality());
-//        tvPromoTitle = ViewUtils.getView(rootView, R.id.tv_promo_title);
-//        tvPromoTitle.setText(locusPoint.getLpTitle());
-//
-//        closeButton = ViewUtils.getView(rootView, R.id.b_close_promo);
-//        closeButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                getControllerFactory().getNavigationController().transitionToPage(getPage(), Page.MAIN_MAP);
-//            }
-//        });
+        final Context context = getActivity();;
+
+        //extract locus point
+        locusPoint = getStoreFactory().getLocusPointStore().getLocusPointByLocation(getStoreFactory().
+                     getLocationStore().getPromoLocation().toString());
+
+        //text fields
+        tvPromoDate = ViewUtils.getView(rootView, R.id.tv_promo_date);
+        tvPromoDate.setText(locusPoint.getLpDate());
+
+        tvPromoDetails = ViewUtils.getView(rootView, R.id.tv_promo_details);
+        tvPromoDetails.setText(locusPoint.getLpDetails());
+
+        tvPromoLocation = ViewUtils.getView(rootView, R.id.tv_promo_location);
+        tvPromoLocation.setText(getLocality());
+
+        tvPromoTitle = ViewUtils.getView(rootView, R.id.tv_promo_company_name);
+        tvPromoTitle.setText(locusPoint.getLpTitle());
+
+        tvPromoLpName = ViewUtils.getView(rootView, R.id.tv_promo_lp_name);
+        tvPromoLpName.setText(locusPoint.getLpName());
+
+        //Buttons
+        qrButton = ViewUtils.getView(rootView, R.id.b_promo_qr_code);
+        qrButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //pop up the qr_code image
+                CharSequence text = "This is the QR Code!";
+                Toast toast = Toast.makeText(context, text, Toast.LENGTH_SHORT);
+                toast.show();
+            }
+        });
+        saveButton = ViewUtils.getView(rootView, R.id.b_promo_save);
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //save locus point location to an array list in user store
+                CharSequence text = "Locus Point Saved!";
+                Toast toast = Toast.makeText(context, text, Toast.LENGTH_SHORT);
+                toast.show();
+            }
+        });
+        closeButton = ViewUtils.getView(rootView, R.id.b_promo_close);
+        closeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getControllerFactory().getNavigationController().transitionToPage(getPage(), Page.MAIN_MAP);
+            }
+        });
 
         return rootView;
     }

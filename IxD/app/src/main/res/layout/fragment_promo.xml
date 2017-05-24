@@ -1,116 +1,149 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffe9e2"
     >
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:background="#3BA684"
-            android:layout_margin="10dp"
-            android:layout_height="150dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Promotion Photo (pretend)"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:textColor="#fff"
-            android:textSize="25sp"
-            android:fontFamily="raleway" />
-
-    </RelativeLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center">
+        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:background="#3BA684"
+                android:layout_margin="10dp"
+                android:layout_height="150dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Promotion Photo (pretend)"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:textColor="#fff"
+                android:textSize="25sp"
+                android:fontFamily="raleway" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="24sp"
-            android:text="Example Company"
-            android:textColor="#aaa"
-            android:id="@+id/tv_promo_company_name"/>
+            android:orientation="vertical"
+            android:gravity="center">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="30sp"
-            android:text="Example Promotion"
-            android:textColor="#666"
-            android:id="@+id/tv_promo_title"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:text="Example Company"
+                android:textColor="#aaa"
+                android:id="@+id/tv_promo_company_name"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:text="Expires: 2/24/2017"
-            android:textColor="#aaa"
-            android:id="@+id/tv_promo_date"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="28sp"
+                android:text="Example Promotion"
+                android:textColor="#666"
+                android:id="@+id/tv_promo_lp_name"/>
 
-        <TextView
-            android:layout_width="350dp"
-            android:layout_height="150dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="20dp"
-            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In facilisis urna leo, sed gravida mauris congue eget. Donec hendrerit sit amet turpis eget condimentum. Morbi faucibus ligula sit amet ornare mollis. Integer venenatis arcu eu varius vestibulum. Nunc mi nulla, venenatis pellentesque magna eu, lobortis hendrerit est. Vestibulum in imperdiet risus, quis viverra eros. Aliquam ac sagittis magna. Praesent faucibus, augue non aliquam varius, nisi elit euismod elit, eu scelerisque libero tellus et libero. Morbi a pharetra leo, a egestas lacus. Duis faucibus arcu nec felis ullamcorper laoreet. Aenean ac felis odio. Praesent egestas ex sit amet justo dignissim, vel malesuada lectus tincidunt. Etiam lacinia ex dolor, dignissim volutpat mi euismod vulputate.
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="Promo Location"
+                android:textColor="#aaa"
+                android:id="@+id/tv_promo_location"/>
 
-"
-            android:id="@+id/tv_promo_details"
-            />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="Expires: 2/24/2017"
+                android:textColor="#aaa"
+                android:id="@+id/tv_promo_date"/>
+
+            <TextView
+                android:layout_width="350dp"
+                android:layout_height="150dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="20dp"
+                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. In facilisis urna leo, sed gravida mauris congue eget. Donec hendrerit sit amet turpis eget condimentum. Morbi faucibus ligula sit amet ornare mollis. Integer venenatis arcu eu varius vestibulum. Nunc mi nulla, venenatis pellentesque magna eu, lobortis hendrerit est. Vestibulum in imperdiet risus, quis viverra eros. Aliquam ac sagittis magna. Praesent faucibus, augue non aliquam varius, nisi elit euismod elit, eu scelerisque libero tellus et libero. Morbi a pharetra leo, a egestas lacus. Duis faucibus arcu nec felis ullamcorper laoreet. Aenean ac felis odio. Praesent egestas ex sit amet justo dignissim, vel malesuada lectus tincidunt. Etiam lacinia ex dolor, dignissim volutpat mi euismod vulputate.
+
+    "
+                android:id="@+id/tv_promo_details"
+                />
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            >
+
+            <Button
+                android:id="@+id/b_promo_qr_code"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="See QR Code"
+                android:textColor="#fff"
+                android:background="#ED8A6D"
+                android:textSize="24dp"
+                android:fontFamily="sans-serif-condensed"
+                android:layout_gravity="center"
+                android:textAllCaps="false"
+                />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="5dp">
+
+            <Button
+                android:id="@+id/b_promo_save"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="Save Locus Point"
+                android:textColor="#fff"
+                android:background="#3BA684"
+                android:textSize="24dp"
+                android:fontFamily="sans-serif-condensed"
+                android:layout_gravity="center"
+                android:textAllCaps="false"
+                />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="5dp">
+
+            <Button
+                android:id="@+id/b_promo_close"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="Close"
+                android:textColor="#fff"
+                android:background="#A14529"
+                android:textSize="24dp"
+                android:fontFamily="sans-serif-condensed"
+                android:layout_gravity="center"
+                android:textAllCaps="false"
+                />
+        </FrameLayout>
+
+
 
     </LinearLayout>
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        >
-
-        <Button
-            android:id="@+id/b_promo_form_qr_code"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:text="See QR Code"
-            android:textColor="#fff"
-            android:background="#a6432a"
-            android:textSize="24dp"
-            android:fontFamily="sans-serif-condensed"
-            android:layout_gravity="center"
-            android:textAllCaps="false"
-            />
-    </FrameLayout>
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="5dp">
-
-        <Button
-            android:id="@+id/b_confirm_promo_form"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:text="Save Locus Point"
-            android:textColor="#fff"
-            android:background="#3BA684"
-            android:textSize="24dp"
-            android:fontFamily="sans-serif-condensed"
-            android:layout_gravity="center"
-            android:textAllCaps="false"
-            />
-    </FrameLayout>
 
 
-
-    
-    
-    
-</LinearLayout>
+</ScrollView>

@@ -1,5 +1,7 @@
 package com.cogs121.ixd.utils;
 
+import android.net.Uri;
+
 /**
  * Created by Chad on 5/9/17.
  */
@@ -7,20 +9,32 @@ package com.cogs121.ixd.utils;
 public class LocusPoint {
 
     private String lpTitle;
+    private String lpName;
     private String lpDetails;
     private String lpDate;
-
-
-
     private String lpLocation;
+
+    private Uri photoUri;
 
     private boolean isCreate = false;
 
-    public LocusPoint(String title, String details, String date, String location) {
+
+    public LocusPoint(Uri photoUri, String title, String lpName, String details, String date, String location) {
+        this.photoUri = photoUri;
         this.lpTitle = title;
+        this.lpName = lpName;
         this.lpDate = date;
         this.lpDetails = details;
         this.lpLocation = location;
+    }
+
+
+    public Uri getPhotoUri() {
+        return photoUri;
+    }
+
+    public void setPhotoUri(Uri photoUri) {
+        this.photoUri = photoUri;
     }
 
     public void setLpTitle(String title) {
@@ -29,6 +43,14 @@ public class LocusPoint {
 
     public String getLpTitle() {
         return lpTitle;
+    }
+
+    public String getLpName() {
+        return lpName;
+    }
+
+    public void setLpName(String lpName) {
+        this.lpName = lpName;
     }
 
     public void setLpDetails(String details) {

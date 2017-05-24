@@ -1,154 +1,196 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffe9e2"
     >
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:background="#3BA684"
-            android:layout_margin="10dp" />
-
-        <TextView
+        <RelativeLayout
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="100dp"
+                android:background="#3BA684"
+                android:layout_margin="10dp"
+                android:clickable="true"
+                android:id="@+id/iv_promo_form_image"
+                android:adjustViewBounds="false"
+                android:scaleType="centerCrop"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add Photo"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/tv_promo_form_add_photo"
+                android:textColor="#fff"
+                android:textSize="25sp"
+                android:fontFamily="raleway" />
+
+        </RelativeLayout>
+
+        <EditText
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Add Photo"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:textColor="#fff"
-            android:textSize="25sp"
-            android:fontFamily="raleway" />
-
-    </RelativeLayout>
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:hint="Company Title..."
-        android:shadowColor="#fff"
-        android:textColor="#aaa"
-        android:textColorHint="#aaa"
-        android:fontFamily="sans-serif-condensed"
-        android:textSize="24dp"
-        android:layout_gravity="left"
-        android:id="@+id/et_promo_form_title"
-        android:typeface="normal"
-        android:background="#fff"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp" />
-
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:hint="Locus Point Name..."
-        android:shadowColor="#fff"
-        android:textColor="#aaa"
-        android:textColorHint="#aaa"
-        android:fontFamily="sans-serif-condensed"
-        android:textSize="24dp"
-        android:layout_gravity="left"
-        android:id="@+id/et_promo_form_lp_name"
-        android:typeface="normal"
-        android:background="#fff"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:hint="Expiration Date..."
-        android:shadowColor="#fff"
-        android:textColor="#aaa"
-        android:textColorHint="#aaa"
-        android:fontFamily="sans-serif-condensed"
-        android:textSize="24dp"
-        android:layout_gravity="left"
-        android:id="@+id/et_promo_form_date"
-        android:typeface="normal"
-        android:background="#fff"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp" />
-
-
-    <EditText
-        android:layout_width="match_parent"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:hint="Details..."
-        android:textSize="24dp"
-        android:textColor="#aaa"
-        android:textColorHint="#aaa"
-        android:fontFamily="sans-serif-condensed"
-        android:id="@+id/et_promo_form_details"
-        android:typeface="normal"
-        android:background="#fff"
-        android:layout_height="200dp"
-        android:textAlignment="inherit"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp" />
-
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:id="@+id/tv_promo_form_location"
-        android:gravity="center_horizontal" />
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        >
-
-        <Button
-            android:id="@+id/b_promo_form_qr_code"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:text="Add QR Code"
-            android:textColor="#fff"
-            android:background="#a6432a"
-            android:textSize="24dp"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:hint="Company Title..."
+            android:shadowColor="#fff"
+            android:textColor="#333"
+            android:textColorHint="#aaa"
             android:fontFamily="sans-serif-condensed"
-            android:layout_gravity="center"
-            android:textAllCaps="false"
-            />
-    </FrameLayout>
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="5dp">
-
-        <Button
-            android:id="@+id/b_confirm_promo_form"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:text="Create"
-            android:textColor="#fff"
-            android:background="#3BA684"
             android:textSize="24dp"
+            android:layout_gravity="left"
+            android:id="@+id/et_promo_form_title"
+            android:typeface="normal"
+            android:background="#fff"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp" />
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:hint="Locus Point Name..."
+            android:shadowColor="#fff"
+            android:textColor="#333"
+            android:textColorHint="#aaa"
             android:fontFamily="sans-serif-condensed"
-            android:layout_gravity="center"
-            android:textAllCaps="false"
-             />
-    </FrameLayout>
+            android:textSize="24dp"
+            android:layout_gravity="left"
+            android:id="@+id/et_promo_form_lp_name"
+            android:typeface="normal"
+            android:background="#fff"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="date"
+            android:ems="10"
+            android:hint="Expiration Date..."
+            android:shadowColor="#fff"
+            android:textColor="#333"
+            android:textColorHint="#aaa"
+            android:fontFamily="sans-serif-condensed"
+            android:textSize="24dp"
+            android:layout_gravity="left"
+            android:id="@+id/et_promo_form_date"
+            android:typeface="normal"
+            android:background="#fff"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType=""
+            android:ems="10"
+            android:hint="Location..."
+            android:shadowColor="#fff"
+            android:textColor="#333"
+            android:textColorHint="#aaa"
+            android:fontFamily="sans-serif-condensed"
+            android:textSize="24dp"
+            android:layout_gravity="left"
+            android:id="@+id/tv_promo_form_location"
+            android:typeface="normal"
+            android:background="#fff"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:hint="Details..."
+            android:textSize="24dp"
+            android:textColor="#333"
+            android:textColorHint="#aaa"
+            android:fontFamily="sans-serif-condensed"
+            android:id="@+id/et_promo_form_details"
+            android:typeface="normal"
+            android:background="#fff"
+            android:layout_gravity="start"
+            android:textAlignment="inherit"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            >
+
+            <Button
+                android:id="@+id/b_promo_form_qr_code"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="Add QR Code"
+                android:textColor="#fff"
+                android:background="#ED8A6D"
+                android:textSize="24dp"
+                android:fontFamily="sans-serif-condensed"
+                android:layout_gravity="center"
+                android:textAllCaps="false"
+                />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="5dp">
+
+            <Button
+                android:id="@+id/b_confirm_promo_form"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="Create"
+                android:textColor="#fff"
+                android:background="#3BA684"
+                android:textSize="24dp"
+                android:fontFamily="sans-serif-condensed"
+                android:layout_gravity="center"
+                android:textAllCaps="false"
+                 />
+        </FrameLayout>
 
 
-</LinearLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="5dp">
+
+            <Button
+                android:id="@+id/b_promo_form_close"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="Close"
+                android:textColor="#fff"
+                android:background="#A14529"
+                android:textSize="24dp"
+                android:fontFamily="sans-serif-condensed"
+                android:layout_gravity="center"
+                android:textAllCaps="false"
+                />
+        </FrameLayout>
+
+    </LinearLayout>
+
+</ScrollView>
