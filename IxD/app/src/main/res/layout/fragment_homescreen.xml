@@ -1,40 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#3BA684"
-    >
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TextView
-            android:id="@+id/tv_homescreen_test"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="locus"
-            android:textSize="72dp"
-            android:textColor="#fff"
-            android:fontFamily="sans-serif-condensed"
-            android:layout_marginTop="60dp"
-            android:layout_gravity="top|center"
-            />
-
-        <Button
-            android:id="@+id/b_go_map"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:text="map"
-            android:textSize="36dp"
-            android:textColor="#fff"
-            android:textAllCaps="false"
-            android:fontFamily="sans-serif-condensed"
-            android:background="#3BA684"
-            android:layout_gravity="center"
-            />
-
-    </FrameLayout>
+    android:background="#3BA684">
 
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/tv_homescreen_test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="locus"
+        android:textSize="72dp"
+        android:textColor="#fff"
+        android:fontFamily="sans-serif-condensed"
+        tools:layout_conversion_absoluteX="115dp"
+        tools:layout_conversion_absoluteY="60dp"
+        tools:layout_conversion_absoluteWidth="153dp"
+        tools:layout_conversion_absoluteHeight="85dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginStart="16dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <Button
+        android:id="@+id/b_go_map"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:text="map"
+        android:textSize="36dp"
+        android:textColor="#fff"
+        android:textAllCaps="false"
+        android:fontFamily="sans-serif-condensed"
+        android:background="#3BA684"
+        tools:layout_conversion_absoluteX="92dp"
+        tools:layout_conversion_absoluteY="183dp"
+        tools:layout_conversion_absoluteWidth="200dp"
+        tools:layout_conversion_absoluteHeight="200dp"
+        android:layout_marginTop="80dp"
+        app:layout_constraintTop_toBottomOf="@+id/tv_homescreen_test"
+        android:layout_marginStart="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_conversion_absoluteX="0dp"
+        tools:layout_conversion_absoluteY="0dp"
+        tools:layout_conversion_absoluteWidth="88dp"
+        tools:layout_conversion_absoluteHeight="48dp"
+        app:layout_constraintTop_toBottomOf="@+id/b_go_map"
+        android:layout_marginTop="80dp"
+        android:checked="false"
+        android:trackTint="#000"
+        android:thumbTint="#fff"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginStart="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintVertical_bias="0.81"
+        android:id="@+id/s_homescreen_user" />
+
+    <TextView
+        android:text="User"
+        android:textColor="#fff"
+        android:fontFamily="sans-serif-condensed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_homescreen_user_text"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/b_go_map"
+        app:layout_constraintBottom_toTopOf="@+id/s_homescreen_user"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintVertical_bias="0.97"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginStart="16dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+
+</android.support.constraint.ConstraintLayout>

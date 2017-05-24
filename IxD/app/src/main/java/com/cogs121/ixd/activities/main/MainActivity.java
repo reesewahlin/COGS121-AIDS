@@ -55,9 +55,14 @@ public class MainActivity extends BaseActivity implements NavigationControllerOb
         switch(toPage) {
             case MAIN_HOME:
                 switch(fromPage) {
-
+                    case NO_PAGE:
+                        fragmentTransaction.add(R.id.fl_main, HomescreenFragment.newInstance(), HomescreenFragment.TAG);
+                        break;
+                    case MAIN_MAP:
+                    case MAIN_CREATE_COMPANY:
+                        getSupportFragmentManager().popBackStack();
+                        return;
                 }
-                fragmentTransaction.add(R.id.fl_main, HomescreenFragment.newInstance(), HomescreenFragment.TAG);
                 break;
             case MAIN_TEST:
                 fragmentTransaction.add(R.id.fl_main, TestFragment.newInstance(), TestFragment.TAG);
@@ -80,6 +85,9 @@ public class MainActivity extends BaseActivity implements NavigationControllerOb
                 break;
             case MAIN_PROMO_FORM:
                 fragmentTransaction.add(R.id.fl_main, PromoFormFragment.newInstance(), PromoFormFragment.TAG);
+                break;
+            case MAIN_CREATE_COMPANY:
+                fragmentTransaction.add(R.id.fl_main, CreateCompanyUserFragment.newInstance(), CreateCompanyUserFragment.TAG);
                 break;
             default:
                 Toast.makeText(getApplicationContext(), "Youuuuu can't do this", Toast.LENGTH_LONG).show();

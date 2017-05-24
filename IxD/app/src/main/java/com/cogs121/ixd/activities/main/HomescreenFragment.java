@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import com.cogs121.ixd.BaseFragment;
@@ -21,11 +23,11 @@ public class HomescreenFragment extends BaseFragment {
 
     public static final String TAG = HomescreenFragment.class.getName();
 
-    private TextView test;
+    private TextView tvSwitchText;
 
     private Button map;
 
-    private Button promo;
+    private Switch userTypeSwitch;
 
     public HomescreenFragment() {
         page = Page.MAIN_HOME;
@@ -48,6 +50,20 @@ public class HomescreenFragment extends BaseFragment {
             @Override
             public void onClick(View view) {
                 getControllerFactory().getNavigationController().transitionToPage(getPage(), Page.MAIN_MAP);
+            }
+        });
+
+        tvSwitchText = ViewUtils.getView(rootView, R.id.tv_homescreen_user_text);
+        userTypeSwitch = ViewUtils.getView(rootView, R.id.s_homescreen_user);
+        userTypeSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
+                    tvSwitchText.setText("Enterprise");
+                    getControllerFactory().getNavigationController().transitionToPage(getPage(), Page.MAIN_CREATE_COMPANY);
+                } else {
+                    tvSwitchText.setText("User");
+                }
             }
         });
         return rootView;
