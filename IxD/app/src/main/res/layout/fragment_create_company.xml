@@ -8,6 +8,34 @@
     android:background="#ffe9e2"
     >
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="0dp"
+        android:layout_height="25dp"
+        android:background="#3BA684"
+        android:id="@+id/linearLayout"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintHorizontal_bias="1.0">
+
+    </LinearLayout>
+
+    <TextView
+        android:text="locus"
+        android:fontFamily="sans-serif-condensed"
+        android:textSize="24sp"
+        android:textColor="#fff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView4"
+        android:layout_gravity="center_vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout"
+        app:layout_constraintRight_toRightOf="@+id/linearLayout"
+        app:layout_constraintLeft_toLeftOf="@+id/linearLayout"
+        app:layout_constraintHorizontal_bias="0.02" />
+
     <TextView
         android:layout_width="100dp"
         android:layout_height="100dp"
@@ -45,21 +73,6 @@
         android:background="@drawable/locus_button"
         />
 
-    <TextView
-        android:text="locus"
-        android:fontFamily="sans-serif-condensed"
-        android:textSize="24sp"
-        android:textColor="#fff"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView4"
-        android:layout_gravity="center_vertical"
-        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout"
-        app:layout_constraintRight_toRightOf="@+id/linearLayout"
-        app:layout_constraintLeft_toLeftOf="@+id/linearLayout"
-        app:layout_constraintHorizontal_bias="0.02" />
-
     <View
         android:layout_width="368dp"
         android:layout_height="1dp"
@@ -74,19 +87,6 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         app:layout_constraintVertical_bias="0.63"
         android:layout_marginStart="16dp" />
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="384dp"
-        android:layout_height="25dp"
-        android:background="#3BA684"
-        android:id="@+id/linearLayout"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintHorizontal_bias="1.0">
-
-    </LinearLayout>
 
     <LinearLayout
         android:layout_width="314dp"
@@ -112,6 +112,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textColor="#3BA684"
+
             />
     </LinearLayout>
 
