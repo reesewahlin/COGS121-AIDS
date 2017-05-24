@@ -30,7 +30,7 @@ public class PromoFormFragment extends BaseFragment {
     public static final String TAG = PromoFormFragment.class.getName();
 
     private Button createPromo;
-    private EditText etTitle;
+    private TextView etTitle;
     private EditText etDetails;
     private EditText etDate;
 
@@ -66,7 +66,7 @@ public class PromoFormFragment extends BaseFragment {
         createPromo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String title = etTitle.getText().toString();
+                String title = getStoreFactory().getUserStore().getCompanyName();
                 String details = etDetails.getText().toString();
                 String date = etDate.getText().toString();
                 String location = promoLocation.toString();
@@ -79,6 +79,7 @@ public class PromoFormFragment extends BaseFragment {
         });
 
         etTitle = ViewUtils.getView(rootView, R.id.et_promo_form_title);
+        etTitle.setText(getStoreFactory().getUserStore().getCompanyName());
 
         etDetails = ViewUtils.getView(rootView, R.id.et_promo_form_details);
         etDate = ViewUtils.getView(rootView, R.id.et_promo_form_date);

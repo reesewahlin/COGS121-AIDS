@@ -27,14 +27,13 @@
 
     </RelativeLayout>
 
-    <EditText
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:hint="Company Title..."
         android:shadowColor="#fff"
-        android:textColor="#aaa"
+        android:textColor="#3BA684"
         android:textColorHint="#aaa"
         android:fontFamily="sans-serif-condensed"
         android:textSize="24dp"

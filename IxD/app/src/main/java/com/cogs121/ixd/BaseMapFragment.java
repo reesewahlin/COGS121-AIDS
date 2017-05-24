@@ -11,6 +11,7 @@ import android.support.v4.app.ActivityCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.cogs121.ixd.Controllers.navigation.Page;
 import com.cogs121.ixd.utils.GoogleMapView;
@@ -63,11 +64,16 @@ public class BaseMapFragment extends BaseFragment implements OnMapReadyCallback,
         googleMapView.setOnMapLongClickListener(new GoogleMap.OnMapLongClickListener() {
             @Override
             public void onMapLongClick(LatLng latLng) {
-                gMap.addMarker(new MarkerOptions()
-                        .title("Create new promo?")
-                        .snippet("").icon(BitmapDescriptorFactory.fromBitmap(smallMarker))
-                        .position(latLng));
-            }
+                if (getStoreFactory().getUserStore().isEnterprise()) {
+                    gMap.addMarker(new MarkerOptions()
+                            .title("Create new promo?")
+                            .snippet("").icon(BitmapDescriptorFactory.fromBitmap(smallMarker))
+                            .position(latLng));
+                } else {
+                    Toast.makeText(getContext(), "Sorry, you can't create a promo unless you are a registered company", Toast.LENGTH_LONG);
+                }
+                }
+
         });
 
         gMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
@@ -109,6 +115,14 @@ public class BaseMapFragment extends BaseFragment implements OnMapReadyCallback,
         placeAutocompleteFragment.setOnPlaceSelectedListener(this);
 
         return super.onCreateView(inflater, container, savedInstanceState);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        gMap.setOnInfoWindowClickListener(null);
+        googleMapView.setOnMapLongClickListener(null);
+        gMap.setOnMarkerClickListener(null);
     }
 
     public void setMapHolder(MapView googleMapHolder) {
