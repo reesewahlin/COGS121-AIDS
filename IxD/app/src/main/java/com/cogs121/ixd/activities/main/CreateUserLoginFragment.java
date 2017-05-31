@@ -19,12 +19,13 @@ import com.cogs121.ixd.utils.ViewUtils;
 
 public class CreateUserLoginFragment extends BaseFragment {
 
-    public static final String TAG = com.cogs121.ixd.activities.main.CreateUserLoginFragment.class.getName();
+    public static final String TAG = com.cogs121.ixd.activities.main.CreateUserLoginFragment.
+                                    class.getName();
 
     private EditText username;
     private EditText password;
 
-    private Button signUp;
+    private Button submitButton;
 
     public static com.cogs121.ixd.activities.main.CreateUserLoginFragment newInstance() {
         com.cogs121.ixd.activities.main.CreateUserLoginFragment fragment =
@@ -47,14 +48,20 @@ public class CreateUserLoginFragment extends BaseFragment {
         username = ViewUtils.getView(rootView, R.id.et_create_user_username);
         password = ViewUtils.getView(rootView, R.id.et_create_user_password);
 
-        signUp = ViewUtils.getView(rootView, R.id.b_create_user_confirm);
-        signUp.setOnClickListener(new View.OnClickListener() {
+        submitButton = ViewUtils.getView(rootView, R.id.b_create_user_confirm);
+
+        if (getStoreFactory().getConsumerUserStore().isLogin())
+            submitButton.setText("Log in");
+        else
+            submitButton.setText("Sign up");
+
+        submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 getStoreFactory().getConsumerUserStore().createConsumerUser(
                         username.getText().toString(), password.getText().toString());
                 getControllerFactory().getNavigationController().transitionToPage(getPage(),
-                        Page.MAIN_HOME);
+                        Page.MAIN_MAP);
             }
         });
 

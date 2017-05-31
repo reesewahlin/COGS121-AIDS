@@ -25,7 +25,7 @@ public class HomescreenFragment extends BaseFragment {
 
     private TextView tvSwitchText;
 
-    private Button map;
+    private Button map, login, signup;
 
     private Switch userTypeSwitch;
 
@@ -42,14 +42,47 @@ public class HomescreenFragment extends BaseFragment {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_homescreen, container, false);
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.fragment_homescreen_new, container, false);
 
-        map = ViewUtils.getView(rootView, R.id.b_go_map);
+        // this will be what the login button does
+
+/*        map = ViewUtils.getView(rootView, R.id.b_go_map);
         map.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 getControllerFactory().getNavigationController().transitionToPage(getPage(), Page.MAIN_MAP);
+            }
+        });*/
+
+        login = ViewUtils.getView(rootView, R.id.b_homescreen_login);
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (getStoreFactory().getEnterpriseUserStore().isEnterprise()) {
+                    getControllerFactory().getNavigationController().transitionToPage(getPage(), Page.MAIN_CREATE_COMPANY);
+                    getStoreFactory().getEnterpriseUserStore().setLogin(true);
+                }
+                else {
+                    getControllerFactory().getNavigationController().transitionToPage(getPage(), Page.MAIN_CREATE_USER);
+                    getStoreFactory().getConsumerUserStore().setLogin(true);
+                }
+            }
+        });
+
+        signup = ViewUtils.getView(rootView, R.id.b_homescreen_signup);
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (getStoreFactory().getEnterpriseUserStore().isEnterprise()) {
+                    getControllerFactory().getNavigationController().transitionToPage(getPage(), Page.MAIN_CREATE_COMPANY);
+                    getStoreFactory().getEnterpriseUserStore().setLogin(false);
+                }
+                else {
+                    getControllerFactory().getNavigationController().transitionToPage(getPage(), Page.MAIN_CREATE_USER);
+                    getStoreFactory().getConsumerUserStore().setLogin(false);
+                }
             }
         });
 
@@ -61,11 +94,9 @@ public class HomescreenFragment extends BaseFragment {
                 if (b) {
                     tvSwitchText.setText("Enterprise");
                     getStoreFactory().getEnterpriseUserStore().setEnterprise(true);
-                    getControllerFactory().getNavigationController().transitionToPage(getPage(), Page.MAIN_CREATE_COMPANY);
                 } else {
                     tvSwitchText.setText("User");
                     getStoreFactory().getEnterpriseUserStore().setEnterprise(false);
-                    getControllerFactory().getNavigationController().transitionToPage(getPage(), Page.MAIN_CREATE_USER);
                 }
             }
         });

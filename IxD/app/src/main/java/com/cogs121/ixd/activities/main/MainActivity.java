@@ -72,9 +72,17 @@ public class MainActivity extends BaseActivity implements NavigationControllerOb
                 break;
             case MAIN_MAP:
                 switch (fromPage) {
-                    case MAIN_HOME:
+//                    case MAIN_HOME:
+//                        fragmentTransaction.setCustomAnimations(R.anim.slide_bottom_to_center, R.anim.none, R.anim.none, R.anim.slide_center_to_bottom);
+//                        fragmentTransaction.add(R.id.fl_main, MapFragment.newInstance(), MapFragment.TAG);
+//                        break;
+                    case MAIN_CREATE_COMPANY:
                         fragmentTransaction.setCustomAnimations(R.anim.slide_bottom_to_center, R.anim.none, R.anim.none, R.anim.slide_center_to_bottom);
-                        fragmentTransaction.add(R.id.fl_main, MapFragment.newInstance(), MapFragment.TAG);
+                        fragmentTransaction.replace(R.id.fl_main, MapFragment.newInstance(), MapFragment.TAG);
+                        break;
+                    case MAIN_CREATE_USER:
+                        fragmentTransaction.setCustomAnimations(R.anim.slide_bottom_to_center, R.anim.none, R.anim.none, R.anim.slide_center_to_bottom);
+                        fragmentTransaction.replace(R.id.fl_main, MapFragment.newInstance(), MapFragment.TAG);
                         break;
                     case MAIN_PROMO:
                         getSupportFragmentManager().popBackStack();
@@ -94,7 +102,7 @@ public class MainActivity extends BaseActivity implements NavigationControllerOb
                 break;
             case MAIN_CREATE_COMPANY:
                 fragmentTransaction.setCustomAnimations(R.anim.slide_bottom_to_center, R.anim.none, R.anim.none, R.anim.slide_center_to_bottom);
-                fragmentTransaction.add(R.id.fl_main, CreateCompanyUserFragment.newInstance(), CreateCompanyUserFragment.TAG);
+                fragmentTransaction.add(R.id.fl_main, CreateCompanyLoginFragment.newInstance(), CreateCompanyLoginFragment.TAG);
                 break;
             case MAIN_CREATE_USER:
                 fragmentTransaction.setCustomAnimations(R.anim.slide_bottom_to_center, R.anim.none, R.anim.none, R.anim.slide_center_to_bottom);

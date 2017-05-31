@@ -104,11 +104,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Company name:"
+            android:text="Password:"
             />
 
         <EditText
-            android:id="@+id/et_create_company_name"
+            android:id="@+id/et_create_company_password"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textColor="#3BA684"
