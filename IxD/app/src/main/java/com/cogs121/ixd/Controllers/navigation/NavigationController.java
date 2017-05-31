@@ -60,6 +60,11 @@ public class NavigationController {
         }
     }
 
+    public void overrideSearchPage() {
+        //this is a hack for the search activity
+        currentPage = Page.SEARCH;
+    }
+
     public Page getCurrentPage() {
         return currentPage;
     }

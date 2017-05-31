@@ -6,6 +6,7 @@ import com.cogs121.ixd.stores.UserStore.ConsumerUserStore;
 import com.cogs121.ixd.stores.UserStore.EnterpriseUserStore;
 import com.cogs121.ixd.stores.location.LocationStore;
 import com.cogs121.ixd.stores.locuspoint.LocusPointStore;
+import com.cogs121.ixd.stores.search.SearchStore;
 
 /**
  * Created by Chad on 4/26/17.
@@ -20,6 +21,7 @@ public class StoreFactory {
     private LocusPointStore locusPointStore;
     private EnterpriseUserStore enterpriseUserStore;
     private ConsumerUserStore consumerUserStore;
+    private SearchStore searchStore;
 
     private static boolean isTornDown = false;
 
@@ -66,6 +68,13 @@ public class StoreFactory {
         return consumerUserStore;
     }
 
+    public SearchStore getSearchStore() {
+        if (searchStore == null) {
+            searchStore = new SearchStore();
+        }
+        return  searchStore;
+    }
+
     public void tearDown() {
         reset();
         storeFactory = null;
@@ -77,6 +86,7 @@ public class StoreFactory {
         locusPointStore = null;
         enterpriseUserStore = null;
         consumerUserStore = null;
+        searchStore = null;
         isTornDown = false;
     }
 

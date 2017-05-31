@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.location.Address;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
@@ -17,6 +18,7 @@ import android.view.ViewGroup;
 import com.cogs121.ixd.Controllers.navigation.Page;
 import com.cogs121.ixd.utils.GoogleMapView;
 import com.cogs121.ixd.utils.LocusPoint;
+import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.places.Place;
@@ -35,7 +37,7 @@ import java.util.Map;
  * Created by Chad on 4/26/17.
  */
 
-public class BaseMapFragment extends BaseFragment implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener, GoogleMap.OnInfoWindowLongClickListener, PlaceSelectionListener {
+public class BaseMapFragment extends BaseFragment implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener, GoogleMap.OnInfoWindowLongClickListener, PlaceSelectionListener, GoogleApiClient.OnConnectionFailedListener {
 
     private MapView mapHolder;
     private GoogleMapView googleMapView;
@@ -191,6 +193,11 @@ public class BaseMapFragment extends BaseFragment implements OnMapReadyCallback,
 
     @Override
     public void onError(Status status) {
+
+    }
+
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
     }
 }
