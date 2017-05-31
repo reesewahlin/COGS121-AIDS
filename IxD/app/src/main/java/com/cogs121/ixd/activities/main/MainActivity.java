@@ -69,6 +69,8 @@ public class MainActivity extends BaseActivity implements NavigationControllerOb
                         fragmentTransaction.add(R.id.fl_main, HomescreenFragment.newInstance(), HomescreenFragment.TAG);
                         break;
                     case MAIN_MAP:
+                        fragmentTransaction.add(R.id.fl_main, HomescreenFragment.newInstance(), HomescreenFragment.TAG);
+                        break;
                     case MAIN_CREATE_COMPANY:
                         getSupportFragmentManager().popBackStack();
                         return;

@@ -37,7 +37,8 @@ import java.util.Map;
  * Created by Chad on 4/26/17.
  */
 
-public class BaseMapFragment extends BaseFragment implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener, GoogleMap.OnInfoWindowLongClickListener, PlaceSelectionListener, GoogleApiClient.OnConnectionFailedListener {
+public class BaseMapFragment extends BaseFragment implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener, GoogleMap.OnInfoWindowLongClickListener,
+        PlaceSelectionListener, GoogleApiClient.OnConnectionFailedListener, GoogleMap.OnMarkerClickListener {
 
     private MapView mapHolder;
     private GoogleMapView googleMapView;
@@ -91,23 +92,15 @@ public class BaseMapFragment extends BaseFragment implements OnMapReadyCallback,
 
         });
 
-        gMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
-            @Override
-            public boolean onMarkerClick(Marker marker) {
-                getStoreFactory().getLocationStore().setPromoLocation(marker.getPosition());
-                LocusPoint lp = getStoreFactory().getLocusPointStore().getLocusPointByLocation(marker.getPosition().toString());
-                if (lp != null) {
-                    marker.setTitle(lp.getLpTitle());
-                }
-
-                return false;
-            }
-        });
-
+        gMap.setOnMarkerClickListener(this);
         gMap.setOnInfoWindowClickListener(this);
 
-
-        animateToCurrLocation(true);
+        Place searchPlace = getStoreFactory().getSearchStore().getSearchPlace();
+        if (searchPlace != null) {
+            animateToSearchPlace(searchPlace);
+        } else {
+            animateToCurrLocation(true);
+        }
         onRefreshLocusPoints();
         mapHolder.onResume();
     }
@@ -151,6 +144,11 @@ public class BaseMapFragment extends BaseFragment implements OnMapReadyCallback,
         }
 
         googleMapView.animateToLocation(currentPosition, 17f, instant);
+    }
+
+    private void animateToSearchPlace(Place place) {
+        LatLng latLng = place.getLatLng();
+        googleMapView.animateToLocation(latLng, 17f, true);
     }
 
     private void onRefreshLocusPoints() {
@@ -200,4 +198,16 @@ public class BaseMapFragment extends BaseFragment implements OnMapReadyCallback,
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
     }
+
+    @Override
+    public boolean onMarkerClick(Marker marker) {
+        getStoreFactory().getLocationStore().setPromoLocation(marker.getPosition());
+        LocusPoint lp = getStoreFactory().getLocusPointStore().getLocusPointByLocation(marker.getPosition().toString());
+        if (lp != null) {
+            marker.setTitle(lp.getLpTitle());
+        }
+        return false;
+    }
+
+
 }

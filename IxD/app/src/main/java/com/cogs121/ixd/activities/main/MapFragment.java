@@ -31,8 +31,7 @@ public class MapFragment extends BaseMapFragment implements GoogleApiClient.OnCo
 
     private TextView searchBar;
     private ListView searchResults;
-    private TextView test;
-
+    private Button homeButton;
     private Button openPromoForm;
 
     private String query;
@@ -70,6 +69,13 @@ public class MapFragment extends BaseMapFragment implements GoogleApiClient.OnCo
             }
         });
 
+        homeButton = ViewUtils.getView(rootView, R.id.b_map_home);
+        homeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getControllerFactory().getNavigationController().transitionToPage(getPage(), Page.MAIN_HOME);
+            }
+        });
 
         setMapHolder((MapView) ViewUtils.getView(rootView, R.id.fl_main_map_holder));
         super.onCreateView(inflater, container, savedInstanceState);

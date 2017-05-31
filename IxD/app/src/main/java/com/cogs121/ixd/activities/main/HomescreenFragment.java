@@ -88,6 +88,10 @@ public class HomescreenFragment extends BaseFragment {
 
         tvSwitchText = ViewUtils.getView(rootView, R.id.tv_homescreen_user_text);
         userTypeSwitch = ViewUtils.getView(rootView, R.id.s_homescreen_user);
+        if (getStoreFactory().getEnterpriseUserStore().isEnterprise()) {
+            userTypeSwitch.setChecked(true);
+            tvSwitchText.setText("Enterprise");
+        }
         userTypeSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
