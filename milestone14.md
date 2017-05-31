@@ -19,11 +19,14 @@
 ![Home](https://github.com/reesewahlin/COGS121-Guography/blob/master/storyboards/home.png)
 - This is our updated homescreen.
 <br>
+
 ![Login](https://github.com/reesewahlin/COGS121-Guography/blob/master/storyboards/login.png)
 - This is the updated login screen.
 <br>
+
 ![Map with Locus Points](https://github.com/reesewahlin/COGS121-Guography/blob/master/storyboards/MapWithLocusPoints.png)
 - An example of the map with locus points.
 <br>
+
 ![Vans Locus Points](https://github.com/reesewahlin/COGS121-Guography/blob/master/storyboards/VansLocusPoint.png)
 - An example locus point
