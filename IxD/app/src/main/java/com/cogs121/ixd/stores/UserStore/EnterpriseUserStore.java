@@ -10,6 +10,7 @@ public class EnterpriseUserStore {
     private String companyName;
 
     private boolean isEnterprise = false;
+    private boolean isLogin = false;
 
     public void createEnterpriseUser(String username, boolean isCompany) {
         if (isCompany) {
@@ -27,6 +28,15 @@ public class EnterpriseUserStore {
     public boolean isEnterprise() {
         return isEnterprise;
     }
+
+    public void setLogin(boolean login) {
+        isLogin = login;
+    }
+
+    public boolean isLogin() {
+        return isLogin;
+    }
+
 
     public String getUserName() {
         return userName;

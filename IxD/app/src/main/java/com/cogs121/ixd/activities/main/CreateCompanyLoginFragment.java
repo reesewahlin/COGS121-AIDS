@@ -17,23 +17,23 @@ import com.cogs121.ixd.utils.ViewUtils;
  * Created by Chad on 5/24/17.
  */
 
-public class CreateCompanyUserFragment extends BaseFragment {
+public class CreateCompanyLoginFragment extends BaseFragment {
 
-    public static final String TAG = CreateCompanyUserFragment.class.getName();
+    public static final String TAG = CreateCompanyLoginFragment.class.getName();
 
-    private EditText companyName;
+    private EditText password;
     private EditText companyEmail;
 
-    private Button signUp;
+    private Button submitButton;
 
-    public static CreateCompanyUserFragment newInstance() {
-        CreateCompanyUserFragment fragment = new CreateCompanyUserFragment();
+    public static CreateCompanyLoginFragment newInstance() {
+        CreateCompanyLoginFragment fragment = new CreateCompanyLoginFragment();
         Bundle bundle = new Bundle();
         fragment.setArguments(bundle);
         return fragment;
     }
 
-    public CreateCompanyUserFragment() {
+    public CreateCompanyLoginFragment() {
         page = Page.MAIN_CREATE_COMPANY;
     }
 
@@ -42,15 +42,22 @@ public class CreateCompanyUserFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_create_company, container, false);
 
-        companyName = ViewUtils.getView(rootView, R.id.et_create_company_name);
+        password = ViewUtils.getView(rootView, R.id.et_create_company_password);
         companyEmail = ViewUtils.getView(rootView, R.id.et_create_company_email);
 
-        signUp = ViewUtils.getView(rootView, R.id.b_create_company_confirm);
-        signUp.setOnClickListener(new View.OnClickListener() {
+        submitButton = ViewUtils.getView(rootView, R.id.b_create_company_confirm);
+
+        if (getStoreFactory().getEnterpriseUserStore().isLogin()) {
+            submitButton.setText("Log in");
+        } else {
+            submitButton.setText("Sign up");
+        }
+
+        submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 getStoreFactory().getEnterpriseUserStore().createEnterpriseUser(companyEmail.getText().toString(), true);
-                getControllerFactory().getNavigationController().transitionToPage(getPage(), Page.MAIN_HOME);
+                getControllerFactory().getNavigationController().transitionToPage(getPage(), Page.MAIN_MAP);
             }
         });
 
