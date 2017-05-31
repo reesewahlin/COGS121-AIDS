@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="0dp"
-    >
+    android:layout_margin="0dp">
 
     <com.google.android.gms.maps.MapView
         android:id="@+id/fl_main_map_holder"
@@ -22,6 +23,35 @@
         android:background="#fff"
         >
     </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="320dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:background="#fff"
+        >
+
+        <TextView
+            android:id="@+id/et_search_bar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textPostalAddress"
+            android:fontFamily="sans-serif-condensed"
+            android:text="Search.."
+            android:textColor="#000"
+            android:gravity="center_vertical"
+            android:textSize="18dp"
+            />
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tv_test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        />
 
 
 </FrameLayout>

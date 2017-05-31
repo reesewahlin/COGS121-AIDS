@@ -10,6 +10,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 
 import com.cogs121.ixd.Controllers.ControllerFactory;
+import com.cogs121.ixd.Controllers.navigation.Page;
 import com.cogs121.ixd.stores.StoreFactory;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -33,8 +34,14 @@ public class BaseActivity extends AppCompatActivity implements ServiceContainer,
 
     protected GoogleApiClient googleApiClient;
 
+    protected Page page;
+
     private static final int PERMISSION_ACCESS_FINE_LOCATION = 101;
     private static final int REQUEST_CHECK_SETTINGS = 102;
+
+    public Page getPage() {
+        return page;
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
