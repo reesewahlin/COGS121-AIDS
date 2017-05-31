@@ -2,6 +2,8 @@ package com.cogs121.ixd.utils;
 
 import android.net.Uri;
 
+import com.google.android.gms.maps.model.LatLng;
+
 /**
  * Created by Chad on 5/9/17.
  */
@@ -14,18 +16,21 @@ public class LocusPoint {
     private String lpDate;
     private String lpLocation;
 
+    private LatLng lpPosition;
+
     private Uri photoUri;
 
     private boolean isCreate = false;
 
 
-    public LocusPoint(Uri photoUri, String title, String lpName, String details, String date, String location) {
+    public LocusPoint(Uri photoUri, String title, String lpName, String details, String date, String location, LatLng position) {
         this.photoUri = photoUri;
         this.lpTitle = title;
         this.lpName = lpName;
         this.lpDate = date;
         this.lpDetails = details;
         this.lpLocation = location;
+        this.lpPosition = position;
     }
 
 
@@ -84,5 +89,13 @@ public class LocusPoint {
     public boolean isCreated() {
         return isCreate;
     }
+    public LatLng getLpPosition() {
+        return lpPosition;
+    }
+
+    public void setLpPosition(LatLng lpPosition) {
+        this.lpPosition = lpPosition;
+    }
+
 
 }

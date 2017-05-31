@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.location.Address;
 import android.location.Geocoder;
 import android.net.Uri;
@@ -29,9 +27,7 @@ import com.cogs121.ixd.utils.LocusPoint;
 import com.cogs121.ixd.utils.ViewUtils;
 import com.google.android.gms.maps.model.LatLng;
 
-import java.io.File;
 import java.io.IOException;
-import java.net.URI;
 import java.util.List;
 
 /**
@@ -102,7 +98,7 @@ public class PromoFormFragment extends BaseFragment {
                 String date = etDate.getText().toString();
                 String location = promoLocation.toString();
 
-                LocusPoint lp = new LocusPoint(photoUri, title, lpName, details, date, location);
+                LocusPoint lp = new LocusPoint(photoUri, title, lpName, details, date, location, promoLocation);
                 lp.createLocusPoint();
                 getStoreFactory().getLocusPointStore().addLocusPoint(lp);
                 getControllerFactory().getNavigationController().transitionToPage(getPage(), Page.MAIN_MAP);

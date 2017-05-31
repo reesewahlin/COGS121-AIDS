@@ -11,7 +11,7 @@ import java.util.Map;
 
 public class LocusPointStore {
 
-    private Map<String, LocusPoint> locusPointList = new HashMap<>();
+    private HashMap<String, LocusPoint> locusPointList = new HashMap<>();
 
     public void addLocusPoint(LocusPoint locusPoint) {
         if (locusPoint == null) {
@@ -29,5 +29,8 @@ public class LocusPointStore {
         return locusPointList.get(location);
     }
 
+    public Map<String, LocusPoint> getLocusPointList() {
+        return locusPointList;
+    }
 
 }

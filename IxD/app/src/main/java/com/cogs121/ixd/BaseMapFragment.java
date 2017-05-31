@@ -29,6 +29,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.Map;
+
 /**
  * Created by Chad on 4/26/17.
  */
@@ -45,6 +47,8 @@ public class BaseMapFragment extends BaseFragment implements OnMapReadyCallback,
 
     private Address address;
 
+    private Bitmap smallMarker;
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
         this.googleMapView = new GoogleMapView(getContext(), googleMap);
@@ -59,7 +63,7 @@ public class BaseMapFragment extends BaseFragment implements OnMapReadyCallback,
         //TODO: make this proper
         BitmapDrawable bitmapdraw=(BitmapDrawable)getResources().getDrawable(R.drawable.map_pin);
         Bitmap b=bitmapdraw.getBitmap();
-        final Bitmap smallMarker = Bitmap.createScaledBitmap(b, 125, 175, false);
+        smallMarker = Bitmap.createScaledBitmap(b, 125, 175, false);
 
         googleMapView.setOnMapLongClickListener(new GoogleMap.OnMapLongClickListener() {
             @Override
@@ -102,6 +106,7 @@ public class BaseMapFragment extends BaseFragment implements OnMapReadyCallback,
 
 
         animateToCurrLocation(true);
+        onRefreshLocusPoints();
         mapHolder.onResume();
     }
 
@@ -144,6 +149,20 @@ public class BaseMapFragment extends BaseFragment implements OnMapReadyCallback,
         }
 
         googleMapView.animateToLocation(currentPosition, 17f, instant);
+    }
+
+    private void onRefreshLocusPoints() {
+        Map<String, LocusPoint> map = getStoreFactory().getLocusPointStore().getLocusPointList();
+
+        if (map != null) {
+            for (Map.Entry<String, LocusPoint> entry : map.entrySet()) {
+                LocusPoint lp = entry.getValue();
+                gMap.addMarker(new MarkerOptions()
+                        .title(lp.getLpTitle())
+                        .icon(BitmapDescriptorFactory.fromBitmap(smallMarker))
+                        .position(lp.getLpPosition()));
+            }
+        }
     }
 
     @Override
