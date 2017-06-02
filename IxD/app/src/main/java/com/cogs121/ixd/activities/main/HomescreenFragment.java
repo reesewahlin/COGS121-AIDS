@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -45,16 +46,6 @@ public class HomescreenFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_homescreen_new, container, false);
-
-        // this will be what the login button does
-
-/*        map = ViewUtils.getView(rootView, R.id.b_go_map);
-        map.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getControllerFactory().getNavigationController().transitionToPage(getPage(), Page.MAIN_MAP);
-            }
-        });*/
 
         login = ViewUtils.getView(rootView, R.id.b_homescreen_login);
         login.setOnClickListener(new View.OnClickListener() {

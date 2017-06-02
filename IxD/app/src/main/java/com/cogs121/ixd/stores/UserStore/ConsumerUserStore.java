@@ -1,45 +1,54 @@
 package com.cogs121.ixd.stores.UserStore;
 
+import com.cogs121.ixd.utils.LocusPoint;
+import com.cogs121.ixd.utils.UserAccount;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
 /**
  * Created by rjw on 5/24/17.
  */
 
+/*
+* Stores the list of all consumer users
+*
+* */
 public class ConsumerUserStore {
-    private String userName;
-    private String password;
 
-    private boolean isEnterprise = false;
+    private HashMap<String, UserAccount> userAccountHashMap = new HashMap<>();
     private boolean isLogin = true;
+    private String currentUser = "None";
 
-    public void createConsumerUser(String username, String password) {
-        this.userName = username;
-        this.password = password;
+    public void createConsumerUserStore(String username, String password) {
+        UserAccount user = new UserAccount(username, password);
+        userAccountHashMap.put(username, user);
     }
 
     public void setLogin(boolean login) {
         isLogin = login;
     }
+
     public boolean isLogin() {
         return isLogin;
     }
 
-    public String getUserName() {
-        return userName;
+
+    public HashMap<String, UserAccount> getUserAccountHashMap() {
+        return userAccountHashMap;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void addUser(String username, String password) {
+        UserAccount user = new UserAccount(username, password);
+        userAccountHashMap.put(username, user);
     }
 
-    public String getPassword() {
-        return password;
+    public UserAccount getUser(String username) {
+        UserAccount user = userAccountHashMap.get(username);
+        return user;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setCurrentUser(String currentUser) {
+        this.currentUser = currentUser;
     }
-
-
-
-
 }

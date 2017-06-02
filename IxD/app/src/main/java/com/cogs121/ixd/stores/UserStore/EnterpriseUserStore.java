@@ -1,24 +1,29 @@
 package com.cogs121.ixd.stores.UserStore;
 
+import android.util.Log;
+
+import com.cogs121.ixd.utils.EnterpriseAccount;
+import com.cogs121.ixd.utils.LocusPoint;
+import com.cogs121.ixd.utils.UserAccount;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
 /**
  * Created by Chad on 5/24/17.
  */
 
 public class EnterpriseUserStore {
 
-    private String userName;
-    private String companyName;
-
+    private HashMap<String, EnterpriseAccount> enterpriseAccountHashMap = new HashMap<>();
     private boolean isEnterprise = false;
     private boolean isLogin = false;
+    private String currentUser = "None";
 
-    public void createEnterpriseUser(String username, boolean isCompany) {
-        if (isCompany) {
-            this.companyName = username;
+    public void createEnterpriseUser(String email, String name) {
+            EnterpriseAccount ent = new EnterpriseAccount(name, email);
+            enterpriseAccountHashMap.put(name, ent);
             isEnterprise = true;
-        } else {
-            this.userName = username;
-        }
     }
 
     public void setEnterprise(boolean enterprise) {
@@ -38,20 +43,28 @@ public class EnterpriseUserStore {
     }
 
 
-    public String getUserName() {
-        return userName;
+    public HashMap<String, EnterpriseAccount> getEnterpriseAccountHashMap() {
+        return enterpriseAccountHashMap;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void addEnterpriseUser(String name, String email) {
+        EnterpriseAccount ent = new EnterpriseAccount(name, email);
+        enterpriseAccountHashMap.put(name, ent);
     }
 
-    public String getCompanyName() {
-        return companyName;
+    public EnterpriseAccount getEnterpriseUser(String name) {
+        EnterpriseAccount ent = enterpriseAccountHashMap.get(name);
+        return ent;
     }
 
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
+    public String getCurrentUser() {
+        return currentUser;
     }
+
+    public void setCurrentUser(String currentUser) {
+        this.currentUser = currentUser;
+    }
+
+
 
 }

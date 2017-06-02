@@ -176,11 +176,12 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:inputType="textPersonName"
+                android:inputType="textCapSentences|textMultiLine"
                 android:ems="10"
                 android:hint="Details..."
                 android:textSize="24dp"
                 android:textColor="#333"
+                android:scrollHorizontally="false"
                 android:textColorHint="#ccc"
                 android:fontFamily="sans-serif-condensed"
                 android:id="@+id/et_promo_form_details"
