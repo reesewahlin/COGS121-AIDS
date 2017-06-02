@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.cogs121.ixd.BaseFragment;
 import com.cogs121.ixd.Controllers.navigation.Page;
@@ -22,8 +23,8 @@ public class CreateUserLoginFragment extends BaseFragment {
     public static final String TAG = com.cogs121.ixd.activities.main.CreateUserLoginFragment.
                                     class.getName();
 
-    private EditText username;
-    private EditText password;
+    private EditText et_username;
+    private EditText et_password;
 
     private Button submitButton;
 
@@ -44,13 +45,14 @@ public class CreateUserLoginFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_create_user, container, false);
+        final Boolean isLogin;
 
-        username = ViewUtils.getView(rootView, R.id.et_create_user_username);
-        password = ViewUtils.getView(rootView, R.id.et_create_user_password);
+        et_username = ViewUtils.getView(rootView, R.id.et_create_user_username);
+        et_password = ViewUtils.getView(rootView, R.id.et_create_user_password);
 
         submitButton = ViewUtils.getView(rootView, R.id.b_create_user_confirm);
 
-        if (getStoreFactory().getConsumerUserStore().isLogin())
+        if (isLogin = getStoreFactory().getConsumerUserStore().isLogin())
             submitButton.setText("Log in");
         else
             submitButton.setText("Sign up");
@@ -58,10 +60,40 @@ public class CreateUserLoginFragment extends BaseFragment {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getStoreFactory().getConsumerUserStore().createConsumerUser(
-                        username.getText().toString(), password.getText().toString());
-                getControllerFactory().getNavigationController().transitionToPage(getPage(),
-                        Page.MAIN_MAP);
+
+                String userName = et_username.getText().toString().replace(" ", "");
+
+                // user does not exist
+                if (getStoreFactory().getConsumerUserStore().getUser(userName) == null) {
+                    // logging in
+                    if (isLogin) {
+                        Toast.makeText(getActivity(), "No account exists with that username!",
+                                        Toast.LENGTH_SHORT).show();
+                    }
+                    // signing up
+                    else {
+                        getStoreFactory().getConsumerUserStore().addUser(
+                                userName, et_password.getText().toString());
+                        getStoreFactory().getConsumerUserStore().setCurrentUser(userName);
+                        getControllerFactory().getNavigationController().transitionToPage(getPage(),
+                                Page.MAIN_MAP);
+                    }
+                }
+                // user exists
+                else {
+                    // logging in
+                    if (isLogin) {
+                        getStoreFactory().getConsumerUserStore().setCurrentUser(userName);
+                        getControllerFactory().getNavigationController().transitionToPage(getPage(),
+                                Page.MAIN_MAP);
+                    }
+                    // signing up
+                    else {
+                        Toast.makeText(getActivity(), "An account with that username already exists!",
+                                Toast.LENGTH_SHORT).show();
+
+                    }
+                }
             }
         });
 

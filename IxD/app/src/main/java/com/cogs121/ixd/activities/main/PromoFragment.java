@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,13 +35,16 @@ public class PromoFragment extends BaseFragment {
 
     private Button closeButton;
     private Button saveButton;
-    private Button qrButton;
+    private Button favoriteButton;
 
     private TextView tvPromoLocation;
     private TextView tvPromoDate;
     private TextView tvPromoDetails;
     private TextView tvPromoTitle;
     private TextView tvPromoLpName;
+    private TextView tvPromoPhoto;
+
+    private ImageView ivImage;
 
     private Address address;
 
@@ -82,15 +86,20 @@ public class PromoFragment extends BaseFragment {
         tvPromoLpName = ViewUtils.getView(rootView, R.id.tv_promo_lp_name);
         tvPromoLpName.setText(locusPoint.getLpName());
 
+        ivImage = ViewUtils.getView(rootView, R.id.iv_form_image);
+        ivImage.setImageURI(locusPoint.getPhotoUri());
+
+        tvPromoPhoto = ViewUtils.getView(rootView, R.id.tv_promo_photo_text);
+        tvPromoPhoto.setText("");
+
+
+
         //Buttons
-        qrButton = ViewUtils.getView(rootView, R.id.b_promo_qr_code);
-        qrButton.setOnClickListener(new View.OnClickListener() {
+        favoriteButton = ViewUtils.getView(rootView, R.id.b_promo_favorite);
+        favoriteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //pop up the qr_code image
-                CharSequence text = "This is the QR Code!";
-                Toast toast = Toast.makeText(context, text, Toast.LENGTH_SHORT);
-                toast.show();
+                //add to account user store
             }
         });
         saveButton = ViewUtils.getView(rootView, R.id.b_promo_save);
