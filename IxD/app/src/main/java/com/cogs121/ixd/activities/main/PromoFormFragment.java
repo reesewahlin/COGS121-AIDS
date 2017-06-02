@@ -100,18 +100,13 @@ public class PromoFormFragment extends BaseFragment {
                 LocusPoint lp = new LocusPoint(photoUri, title, lpName, details, date, location, promoLocation);
                 lp.createLocusPoint();
                 getStoreFactory().getLocusPointStore().addLocusPoint(lp);
+                getStoreFactory().getEnterpriseUserStore().getEnterpriseUser(
+                        getStoreFactory().getEnterpriseUserStore().getCurrentUser()
+                ).addLocusPoint(lp);
                 getControllerFactory().getNavigationController().transitionToPage(getPage(), Page.MAIN_MAP);
             }
         });
-        addQrCode = ViewUtils.getView(rootView, R.id.b_promo_form_qr_code);
-        addQrCode.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                CharSequence text = "Nice! You created a QR Code!";
-                Toast toast = Toast.makeText(getActivity(), text, Toast.LENGTH_SHORT);
-                toast.show();
-            }
-        });
+
 
         closeButton = ViewUtils.getView(rootView, R.id.b_promo_form_close);
         closeButton.setOnClickListener(new View.OnClickListener() {

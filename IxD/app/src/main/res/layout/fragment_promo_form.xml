@@ -202,25 +202,6 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            >
-
-            <Button
-                android:id="@+id/b_promo_form_qr_code"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:text="Add QR Code"
-                android:textColor="#fff"
-                android:background="@drawable/locus_button_light_red"
-                android:textSize="24dp"
-                android:fontFamily="sans-serif-condensed"
-                android:layout_gravity="center"
-                android:textAllCaps="false"
-                />
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
             android:layout_marginTop="5dp">
 
             <Button
