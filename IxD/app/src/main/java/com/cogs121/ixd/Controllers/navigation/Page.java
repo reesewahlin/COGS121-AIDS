@@ -14,6 +14,7 @@ public enum Page {
     MAIN_PROMO_FORM,
     MAIN_CREATE_COMPANY,
     MAIN_CREATE_USER,
+    MAIN_FAVORITES,
 
     SEARCH
 }

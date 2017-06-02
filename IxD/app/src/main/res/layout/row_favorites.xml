@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="left"
+            >
+
+            <TextView
+                android:id="@+id/tv_favorite_row_title"
+                android:textSize="36dp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-condensed"
+                android:text="test"
+                android:textColor="#000"
+                android:layout_marginLeft="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tv_favorite_row_company"
+                android:textSize="24dp"
+                android:textStyle="normal"
+                android:fontFamily="sans-serif-condensed"
+                android:textColor="#000"
+                android:text="Company Name"
+                android:layout_marginLeft="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tv_favorite_row_location"
+                android:textSize="18dp"
+                android:textStyle="normal"
+                android:fontFamily="sans-serif-condensed"
+                android:textColor="#3BA684"
+                android:text="test"
+                android:layout_marginLeft="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_favorites_navigate"
+            android:layout_width="25dp"
+            android:layout_height="50dp"
+            android:layout_gravity="right|center"
+            android:layout_marginRight="16dp"
+            android:src="@mipmap/ic_directions_car_black_24dp"
+            />
+
+    </FrameLayout>
+
+
+
+</FrameLayout>

@@ -3,6 +3,7 @@ package com.cogs121.ixd;
 
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.location.Address;
@@ -11,6 +12,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +30,7 @@ import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -38,7 +41,7 @@ import java.util.Map;
  */
 
 public class BaseMapFragment extends BaseFragment implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener, GoogleMap.OnInfoWindowLongClickListener,
-        PlaceSelectionListener, GoogleApiClient.OnConnectionFailedListener, GoogleMap.OnMarkerClickListener {
+        PlaceSelectionListener, GoogleApiClient.OnConnectionFailedListener, GoogleMap.OnMarkerClickListener, GoogleMap.InfoWindowAdapter {
 
     private MapView mapHolder;
     private GoogleMapView googleMapView;
@@ -68,6 +71,16 @@ public class BaseMapFragment extends BaseFragment implements OnMapReadyCallback,
         Bitmap b=bitmapdraw.getBitmap();
         smallMarker = Bitmap.createScaledBitmap(b, 125, 175, false);
 
+        try {
+            boolean success = gMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(getContext(), R.raw.map_style));
+
+            if(!success) {
+                Log.e("Tag", "Style parsing failed");
+            }
+        } catch (Resources.NotFoundException e) {
+            Log.e("tag", "didn't load json");
+        }
+
         googleMapView.setOnMapLongClickListener(new GoogleMap.OnMapLongClickListener() {
             @Override
             public void onMapLongClick(LatLng latLng) {
@@ -94,6 +107,7 @@ public class BaseMapFragment extends BaseFragment implements OnMapReadyCallback,
 
         gMap.setOnMarkerClickListener(this);
         gMap.setOnInfoWindowClickListener(this);
+        gMap.setInfoWindowAdapter(this);
 
         Place searchPlace = getStoreFactory().getSearchStore().getSearchPlace();
         if (searchPlace != null) {
@@ -210,4 +224,14 @@ public class BaseMapFragment extends BaseFragment implements OnMapReadyCallback,
     }
 
 
+    @Override
+    public View getInfoWindow(Marker marker) {
+
+        return null;
+    }
+
+    @Override
+    public View getInfoContents(Marker marker) {
+        return null;
+    }
 }
