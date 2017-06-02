@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    >
+
+    <FrameLayout
+        android:id="@+id/fl_info_window"
+        android:minHeight="75dp"
+        android:minWidth="150dp"
+        android:maxWidth="150dp"
+        android:maxHeight="150dp"
+        android:background="@drawable/info_window"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    </FrameLayout>
+
+
+</FrameLayout>

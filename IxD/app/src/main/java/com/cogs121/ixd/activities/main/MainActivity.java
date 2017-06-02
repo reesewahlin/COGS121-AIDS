@@ -100,6 +100,9 @@ public class MainActivity extends BaseActivity implements NavigationControllerOb
                         fragmentTransaction.setCustomAnimations(R.anim.slide_center_to_right, R.anim.none, R.anim.none, R.anim.slide_right_to_center);
                         fragmentTransaction.add(R.id.fl_main, MapFragment.newInstance(), MapFragment.TAG);
                         break;
+                    case MAIN_FAVORITES:
+                        getSupportFragmentManager().popBackStack();
+                        return;
                     case MAIN_PROMO:
                         getSupportFragmentManager().popBackStack();
                         return;
@@ -123,6 +126,10 @@ public class MainActivity extends BaseActivity implements NavigationControllerOb
             case MAIN_CREATE_USER:
                 fragmentTransaction.setCustomAnimations(R.anim.slide_bottom_to_center, R.anim.none, R.anim.none, R.anim.slide_center_to_bottom);
                 fragmentTransaction.add(R.id.fl_main, CreateUserLoginFragment.newInstance(), CreateUserLoginFragment.TAG);
+                break;
+            case MAIN_FAVORITES:
+                fragmentTransaction.setCustomAnimations(R.anim.slide_right_to_center, R.anim.none, R.anim.none, R.anim.slide_center_to_right);
+                fragmentTransaction.add(R.id.fl_main, FavoritesFragment.newInstance(), FavoritesFragment.TAG);
                 break;
             case SEARCH:
                 transitionToSearchActivity();
