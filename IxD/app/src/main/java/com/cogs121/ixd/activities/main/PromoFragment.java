@@ -100,6 +100,9 @@ public class PromoFragment extends BaseFragment {
             @Override
             public void onClick(View view) {
                 //add to account user store
+                getStoreFactory().getConsumerUserStore().getUser(
+                        getStoreFactory().getConsumerUserStore().getCurrentUser()
+                ).addFavorite(locusPoint);
             }
         });
         saveButton = ViewUtils.getView(rootView, R.id.b_promo_save);

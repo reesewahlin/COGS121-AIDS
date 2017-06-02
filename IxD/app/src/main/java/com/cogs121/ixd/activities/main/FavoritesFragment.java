@@ -67,7 +67,8 @@ public class FavoritesFragment extends BaseFragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //get favorites from acct store
-
+        String user = getStoreFactory().getConsumerUserStore().getCurrentUser();
+        favoritesList = getStoreFactory().getConsumerUserStore().getUser(user).getFavoriteLocusPoints();
         favoritesListAdapter = new FavoritesListAdapter(getContext(), R.layout.row_favorites, favoritesList);
     }
 

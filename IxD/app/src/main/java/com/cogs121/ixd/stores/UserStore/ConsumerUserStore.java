@@ -1,9 +1,7 @@
 package com.cogs121.ixd.stores.UserStore;
 
-import com.cogs121.ixd.utils.LocusPoint;
 import com.cogs121.ixd.utils.UserAccount;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -18,6 +16,11 @@ public class ConsumerUserStore {
 
     private HashMap<String, UserAccount> userAccountHashMap = new HashMap<>();
     private boolean isLogin = true;
+
+    public String getCurrentUser() {
+        return currentUser;
+    }
+
     private String currentUser = "None";
 
     public void createConsumerUserStore(String username, String password) {
