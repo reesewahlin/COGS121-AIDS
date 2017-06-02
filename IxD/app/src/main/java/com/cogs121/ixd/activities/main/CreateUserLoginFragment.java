@@ -7,14 +7,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cogs121.ixd.BaseFragment;
 import com.cogs121.ixd.Controllers.navigation.Page;
 import com.cogs121.ixd.R;
 import com.cogs121.ixd.utils.ViewUtils;
+import com.google.android.gms.vision.text.Text;
 
-    /**
+/**
      * Created by Chad on 5/24/17.
      */
 
@@ -25,6 +28,9 @@ public class CreateUserLoginFragment extends BaseFragment {
 
     private EditText et_username;
     private EditText et_password;
+
+    private TextView tv_userAddPhoto;
+    private ImageView iv_userAddPhoto;
 
     private Button submitButton;
 

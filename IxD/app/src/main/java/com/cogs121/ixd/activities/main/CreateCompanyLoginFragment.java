@@ -1,12 +1,20 @@
 package com.cogs121.ixd.activities.main;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,9 +33,16 @@ public class CreateCompanyLoginFragment extends BaseFragment {
 
     private EditText password;
     private EditText et_companyEmail, et_companyName;
-    private TextView tv_companyName;
+    private TextView tv_companyName, tv_companyAddPhoto;
+
+    private Uri photoUri;
+
+    private ImageView iv_companyPhoto;
 
     private Button submitButton;
+
+    private int IMAGE_PICKER_SELECT = 1;
+
 
     public static CreateCompanyLoginFragment newInstance() {
         CreateCompanyLoginFragment fragment = new CreateCompanyLoginFragment();
@@ -50,14 +65,33 @@ public class CreateCompanyLoginFragment extends BaseFragment {
         et_companyEmail = ViewUtils.getView(rootView, R.id.et_create_company_email);
         et_companyName = ViewUtils.getView(rootView, R.id.et_create_company_name);
         tv_companyName = ViewUtils.getView(rootView, R.id.tv_create_company_name);
-
+        tv_companyAddPhoto = ViewUtils.getView(rootView, R.id.tv_user_add_photo);
         submitButton = ViewUtils.getView(rootView, R.id.b_create_company_confirm);
+        iv_companyPhoto = ViewUtils.getView(rootView, R.id.iv_company_photo);
 
         if (isLogin = getStoreFactory().getEnterpriseUserStore().isLogin()) {
             submitButton.setText("Log in");
+            iv_companyPhoto.setVisibility(View.INVISIBLE);
+            tv_companyAddPhoto.setVisibility(View.INVISIBLE);
         } else {
             submitButton.setText("Sign up");
+            iv_companyPhoto.setVisibility(View.VISIBLE);
+            tv_companyAddPhoto.setVisibility(View.VISIBLE);
+
         }
+
+        tv_companyAddPhoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getActivity(), "Clicked!!", Toast.LENGTH_SHORT).show();
+
+                Intent i = new Intent(
+                        Intent.ACTION_PICK,
+                        android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(i, IMAGE_PICKER_SELECT);
+            }
+        });
+
 
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,4 +128,45 @@ public class CreateCompanyLoginFragment extends BaseFragment {
 
         return rootView;
     }
+
+
+
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == IMAGE_PICKER_SELECT
+                && resultCode == Activity.RESULT_OK) {
+            String path = getPathFromCameraData(data, this.getActivity());
+            Log.i("PICTURE", "Path: " + path);
+            if (path != null) {
+                Uri selectedImageUri = data.getData();
+                iv_companyPhoto.setImageURI(selectedImageUri);
+                tv_companyAddPhoto.setVisibility(View.INVISIBLE);
+                iv_companyPhoto.setVisibility(View.VISIBLE);
+                photoUri = selectedImageUri;
+            }
+        }
+    }
+
+    public static String getPathFromCameraData(Intent data, Context context) {
+        Uri selectedImage = data.getData();
+        String[] filePathColumn = { MediaStore.Images.Media.DATA };
+        Cursor cursor = context.getContentResolver().query(selectedImage,
+                filePathColumn, null, null, null);
+        cursor.moveToFirst();
+        int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+        String picturePath = cursor.getString(columnIndex);
+        cursor.close();
+        return picturePath;
+    }
+
+
+
+
+
+
+
+
+
+
+
 }

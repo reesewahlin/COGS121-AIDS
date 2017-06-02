@@ -34,6 +34,8 @@ public class LocusPoint {
     }
 
 
+
+
     public Uri getPhotoUri() {
         return photoUri;
     }
