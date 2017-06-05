@@ -19,7 +19,7 @@
                 android:textSize="36dp"
                 android:textStyle="bold"
                 android:fontFamily="sans-serif-condensed"
-                android:text="test"
+                android:text="Vans"
                 android:textColor="#000"
                 android:layout_marginLeft="16dp"
                 android:layout_width="wrap_content"

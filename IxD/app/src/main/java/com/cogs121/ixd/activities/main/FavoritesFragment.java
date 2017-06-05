@@ -1,6 +1,8 @@
 package com.cogs121.ixd.activities.main;
 
 import android.content.Context;
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -17,8 +19,11 @@ import com.cogs121.ixd.Controllers.navigation.Page;
 import com.cogs121.ixd.R;
 import com.cogs121.ixd.utils.LocusPoint;
 import com.cogs121.ixd.utils.ViewUtils;
+import com.google.android.gms.maps.model.LatLng;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Chad on 6/1/17.
@@ -76,6 +81,8 @@ public class FavoritesFragment extends BaseFragment {
 
         private ArrayList<String> favorites;
 
+        private Address address;
+
         public FavoritesListAdapter(Context context, int resource, ArrayList<String> objects) {
             super(context, resource, objects);
             this.favorites = objects;
@@ -91,8 +98,19 @@ public class FavoritesFragment extends BaseFragment {
                 v = vi.inflate(R.layout.row_favorites, null);
             }
             String locusPoint = favorites.get(position);
+            LocusPoint lp = getStoreFactory().getLocusPointStore().getLocusPointByLocation(locusPoint);
+            LatLng latLng = lp.getLpPosition();
+            Geocoder geocoder = new Geocoder(getContext());
+            try {
+                List<Address> addressList = geocoder.getFromLocation(latLng.latitude, latLng.longitude, 1);
+                address = addressList.get(0);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
             if (locusPoint != null) {
-                LocusPoint lp = getStoreFactory().getLocusPointStore().getLocusPointByLocation(locusPoint);
+
                 TextView title = (TextView) v.findViewById(R.id.tv_favorites_title);
                 TextView companyName = (TextView) v.findViewById(R.id.tv_favorite_row_company);
                 TextView location = (TextView) v.findViewById(R.id.tv_favorite_row_location);
@@ -105,7 +123,9 @@ public class FavoritesFragment extends BaseFragment {
                     companyName.setText(lp.getLpName());
                 }
                 if(location != null) {
-                    location.setText(lp.getLpPosition().toString());
+                    String street = address.getAddressLine(0);
+                    String locality = address.getAddressLine(1);
+                    location.setText(street + "," + locality);
                 }
                 navigate.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -118,4 +138,5 @@ public class FavoritesFragment extends BaseFragment {
             return v;
         }
     }
+
 }

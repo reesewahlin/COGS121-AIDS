@@ -1,8 +1,10 @@
 package com.cogs121.ixd.activities.main;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -149,10 +151,31 @@ public class MapFragment extends BaseMapFragment implements GoogleApiClient.OnCo
             }
         });
 
+        if (checkIfEnterprise()) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+            builder.setMessage("Please verify your account by following the instructions provided in your username email to continue").setTitle("Account Verification Needed");
+            AlertDialog dialog = builder.create();
+            builder.setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    dialogInterface.dismiss();
+                }
+            });
+            dialog.show();
+        }
+
         setMapHolder((MapView) ViewUtils.getView(rootView, R.id.fl_main_map_holder));
         super.onCreateView(inflater, container, savedInstanceState);
 
         return rootView;
+    }
+
+    private boolean checkIfEnterprise() {
+        if (getStoreFactory().getEnterpriseUserStore().isEnterprise()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }
