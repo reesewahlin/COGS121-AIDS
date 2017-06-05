@@ -146,13 +146,4 @@
             />
     </LinearLayout>
 
-    <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        app:srcCompat="@drawable/cast_abc_scrubber_control_off_mtrl_alpha"
-        android:id="@+id/iv_user_add_photo"
-        app:layout_constraintTop_toTopOf="@+id/tv_user_add_photo"
-        app:layout_constraintLeft_toLeftOf="@+id/tv_user_add_photo"
-        app:layout_constraintRight_toRightOf="@+id/tv_user_add_photo" />
-
 </android.support.constraint.ConstraintLayout>

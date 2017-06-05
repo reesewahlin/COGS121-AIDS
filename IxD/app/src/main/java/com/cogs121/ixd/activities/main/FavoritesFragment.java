@@ -110,8 +110,7 @@ public class FavoritesFragment extends BaseFragment {
 
 
             if (locusPoint != null) {
-
-                TextView title = (TextView) v.findViewById(R.id.tv_favorites_title);
+                TextView title = (TextView) v.findViewById(R.id.tv_favorite_row_title);
                 TextView companyName = (TextView) v.findViewById(R.id.tv_favorite_row_company);
                 TextView location = (TextView) v.findViewById(R.id.tv_favorite_row_location);
                 ImageView navigate = (ImageView) v.findViewById(R.id.iv_favorites_navigate);
