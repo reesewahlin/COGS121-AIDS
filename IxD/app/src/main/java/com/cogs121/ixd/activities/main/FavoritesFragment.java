@@ -93,7 +93,7 @@ public class FavoritesFragment extends BaseFragment {
             String locusPoint = favorites.get(position);
             if (locusPoint != null) {
                 LocusPoint lp = getStoreFactory().getLocusPointStore().getLocusPointByLocation(locusPoint);
-                TextView title = (TextView) v.findViewById(R.id.tv_favorites_title);
+                TextView title = (TextView) v.findViewById(R.id.tv_favorite_row_title);
                 TextView companyName = (TextView) v.findViewById(R.id.tv_favorite_row_company);
                 TextView location = (TextView) v.findViewById(R.id.tv_favorite_row_location);
                 ImageView navigate = (ImageView) v.findViewById(R.id.iv_favorites_navigate);
