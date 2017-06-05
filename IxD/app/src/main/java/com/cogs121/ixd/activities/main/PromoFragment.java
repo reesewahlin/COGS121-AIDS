@@ -103,18 +103,22 @@ public class PromoFragment extends BaseFragment {
                 getStoreFactory().getConsumerUserStore().getUser(
                         getStoreFactory().getConsumerUserStore().getCurrentUser()
                 ).addFavorite(locusPoint);
-            }
-        });
-        saveButton = ViewUtils.getView(rootView, R.id.b_promo_save);
-        saveButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //save locus point location to an array list in user store
-                CharSequence text = "Locus Point Saved!";
+                CharSequence text = "Locus Point saved!";
                 Toast toast = Toast.makeText(context, text, Toast.LENGTH_SHORT);
                 toast.show();
+
             }
         });
+//        saveButton = ViewUtils.getView(rootView, R.id.b_promo_save);
+//        saveButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                //save locus point location to an array list in user store
+//                CharSequence text = "Locus Point Saved!";
+//                Toast toast = Toast.makeText(context, text, Toast.LENGTH_SHORT);
+//                toast.show();
+//            }
+//        });
         closeButton = ViewUtils.getView(rootView, R.id.b_promo_close);
         closeButton.setOnClickListener(new View.OnClickListener() {
             @Override
